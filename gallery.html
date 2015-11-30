@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Projects Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="projects-signup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    function getPhotos(photoset_id) {
+        //get pictures for each photoset
+        $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=36a3cebb7611c56845ce3a4fd5b2f456&user_id=137000489%40N06&format=json&nojsoncallback=1&photoset_id=" + photoset_id).done(function(data) {
+            var pictures = data.photoset.photo;
+            for (var i = 0; i < pictures.length; ++i) {
+                var photo = pictures[i];
+                var farmid = photo.farm;
+                var serverid = photo.server;
+                var imageid = photo.id;
+                var imagesecret = photo.secret;
+                var flickrAPI_farmURL = "https://farm" + farmid + ".staticflickr.com/" + serverid + "/" + imageid + "_" + imagesecret + "_q.jpg";
+                $('#gallery_thumbnails').append("<img src='" + flickrAPI_farmURL + "'>");
+                console.log("success" + photoset_id);
+            }
+        });
+    }
+    $().ready(function() {
+        //Get all the albums
+        $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=36a3cebb7611c56845ce3a4fd5b2f456&user_id=137000489%40N06&format=json&nojsoncallback=1").done(function(data) {
+            var photosets = data.photosets.photoset;
+            for (var x = 0; x < photosets.length; ++x) {
+                var photoset_id = photosets[x].id;
+                console.log(photoset_id);
+                getPhotos(photoset_id);
+            }
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div id="container" class="gallery">
+        <h2 style="background-color:#fcb364;margin:0px;padding:10px;">Gallery</h2>
+        <div id="gallery_slideshow"></div>
+        <div id="gallery_thumbnails"></div>
+        <div id="gallery_album_descriptions"></div>
+        <div id="gallery_albums"></div>
+    </div>
+</body>
+
+</html>
