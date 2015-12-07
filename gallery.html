@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript">
     function getPhotos(photoset_id) {
+        //If limited per page, user &per_page=5&page=1,2,3
         //get pictures for each photoset
         $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=36a3cebb7611c56845ce3a4fd5b2f456&user_id=137000489%40N06&format=json&nojsoncallback=1&photoset_id=" + photoset_id).done(function(data) {
             var pictures = data.photoset.photo;
@@ -18,7 +19,6 @@
                 var imagesecret = photo.secret;
                 var flickrAPI_farmURL = "https://farm" + farmid + ".staticflickr.com/" + serverid + "/" + imageid + "_" + imagesecret + "_q.jpg";
                 $('#gallery_thumbnails').append("<img src='" + flickrAPI_farmURL + "'>");
-                console.log("success" + photoset_id);
             }
         });
     }
@@ -28,7 +28,7 @@
             var photosets = data.photosets.photoset;
             for (var x = 0; x < photosets.length; ++x) {
                 var photoset_id = photosets[x].id;
-                console.log(photoset_id);
+                $('#gallery_thumbnails').append(photosets[x].title._content + "<br>");
                 getPhotos(photoset_id);
             }
         });
