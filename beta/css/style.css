@@ -33,7 +33,6 @@ footer {
   width: 60%;
   padding: 8px;
   margin: auto;
-  border-radius: 50px;
   margin-top: 20px;
   margin-bottom: 5px;
   box-shadow: white 0px 0px 30px, black 0px 0px 30px, white 0px 0px 30px;
@@ -43,7 +42,8 @@ footer {
 .container {
   margin: auto auto;
   width: 60%;
-  box-shadow: skyblue 0px 0px 19px, white 0px 0px 19px, skyblue 0px 0px 19px;
+  /*
+  box-shadow: skyblue 0px 0px 19px, white 0px 0px 19px, skyblue 0px 0px 19px;*/
   padding: 0px;
 }
 

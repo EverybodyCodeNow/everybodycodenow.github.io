@@ -38,10 +38,10 @@
               <a data-toggle="tab" href="#aboutUs">About Us</a>
             </li>
             <li>
-              <a data-toggle="tab" href="#menu1">Get Involved!</a>
+              <a data-toggle="tab" href="#getInvolved">Get Involved!</a>
             </li>
             <li>
-              <a data-toggle="tab" href="#menu1">Contact Us</a>
+              <a data-toggle="tab" href="#contactUs">Contact Us</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -100,9 +100,56 @@
         <script src="map.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
       </section>
-			<section id="aboutUs" class="tab-pane fade">
+      <section id="aboutUs" class="tab-pane fade blueBox">
+        <h3>About us</h3>
+        <p style="font-size:18px">
+          Everybody Code Now! Is a non-profit organization that works to empower the next generation of leaders in computing to transform their future and help lead their communities towards a new era of technical expertise and entrepreneurship from exposure
+          to basic programming skills. Through Everybody Code Now’s various camps, workshops, and mentorship opportunities, Everybody Code Now shows students that with determination, hard work, and a couple lines of code, the future is theirs for the making.
+        </p>
+      </section>
+      <section id="contactUs" class="tab-pane fade blueBox">
+        <h3>Contact us</h3>
+        <div class="row">
+          <div class=" slideanim">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			</section>
+      <section id="getInvolved" class="tab-pane fade blueBox">
+        <h3>Get involved</h3>
+        <div class="row">
+          <div class=" slideanim">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <footer>
       &copy; 2016 Everybody Code Now</footer>
