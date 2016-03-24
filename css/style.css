@@ -1,24 +1,26 @@
 /*CSS by ShiboTheCoder*/
 
-
 /*Le Font*/
-
 @font-face {
   font-family: 'Bariol_Regular';
   src: url(./Bariol_Regular.otf);
 }
 
 /*Le body and le html*/
-
 html, body {
   height: 100%;
 }
+html{
+  background: #FFF url(../homepage.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body {
   font-family: Bariol_Regular, sans-serif;
-  background: #FFF url(../homepage.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
   padding-top: 50px;
+  background: none;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #222;
@@ -38,7 +40,6 @@ footer {
 }
 
 /*Phagocyte*/
-
 .container {
   margin: auto auto;
   width: 60%;
@@ -131,15 +132,4 @@ a.navbar-brand > img {
 }
 #whereAreWe:hover #map {
   box-shadow: red 0px 0px 10px !important;
-}
-
-/*Teeni weeni scrweens, aww so cute*/
-
-@media only screen and (max-width: 750px) {
-  body > nav > div > div.navbar-header > button {
-    border-color: #53C2E1 !important;
-  }
-  body > nav > div > div.navbar-header > button > span {
-    background-color: #53C2E1;
-  }
 }
