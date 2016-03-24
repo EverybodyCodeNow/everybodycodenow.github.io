@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Everybody Code Now! | Empowering the Next Generation of Leaders in Computing</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico filled.png.ico"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- FireBase -->
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/media.css" rel="stylesheet" type="text/css"/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./"><img src="logo.png" alt=""/>Everybody Code Now!</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-left nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" href="#home">Home</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#aboutUs">About Us</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#menu1">Get Involved!</a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#menu1">Contact Us</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li style="display:none;">
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span>
+                Sign Up</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container tab-content">
+      <header>
+        <h1 id="logo" class="blueBox">
+          <img src="logo.png" alt=""/>Everybody Code Now!</h1>
+        <h4 class="blueBox slogan">Everybody Code Now! works to empower the next generation of youth through exposure to basic programming skills.</h3>
+      </header>
+      <section id="home" class="tab-pane fade in active">
+        <div class="blueBox" id="upcomingEvents">
+          <h3>
+            <span class="glyphicon glyphicon-calendar"></span>Upcoming events:</h3>
+          <table class="table table-hover">
+            <tbody>
+              <tr class="danger">
+                <td>September 2016</td>
+                <td>CSS Workshop</td>
+                <td>
+                  <button type="button" class="btn btn-primary" name="button">Sign Up!</button>
+                </td>
+              </tr>
+              <tr class="success">
+                <td>October 2016</td>
+                <td>HTML Workshop</td>
+                <td>
+                  <button type="button" class="btn btn-primary" name="button">Sign Up!</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="blueBox" id="whereAreWe">
+          <h3>
+            <img src="http://www.pd4pic.com/images/location-pointer-pin-google-map-red.png" alt=""/>
+            Where we are:
+          </h3>
+          <div id="map"></div>
+        </div>
+        <script src="map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+      </section>
+			<section id="aboutUs" class="tab-pane fade">
+
+			</section>
+    </div>
+    <footer>
+      &copy; 2016 Everybody Code Now</footer>
+  </body>
+</html>
