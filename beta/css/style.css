@@ -41,7 +41,7 @@ footer {
 /*Phagocyte*/
 .container {
   margin: auto auto;
-  width: 60%;
+  width: 80%;
   /*
   box-shadow: skyblue 0px 0px 19px, white 0px 0px 19px, skyblue 0px 0px 19px;*/
   padding: 0px;
@@ -132,4 +132,32 @@ a.navbar-brand > img {
 }
 #whereAreWe:hover #map {
   box-shadow: red 0px 0px 10px !important;
+}
+
+/*About Page*/
+#aboutUs {
+font-size: 16px !important;
+color: #000;}
+#swetha-box{
+  margin-top: 10px;
+  background-color: white;
+}
+#swetha-box > p{
+  margin: auto;
+  width: 60%;
+}
+#swetha-box > figure > img {
+  width: 300px;
+  height: auto;
+}
+
+.team-bio > figure > img {
+  width: 70%;
+  max-height: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.team-bio > p{
+  display: none;
 }
