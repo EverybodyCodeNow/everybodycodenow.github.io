@@ -188,20 +188,36 @@
           <div class=" slideanim">
             <div class="row">
               <div class="col-sm-6 form-group">
-                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                <input class="form-control" id="contactus-name" name="name" placeholder="Name" type="text" required>
               </div>
               <div class="col-sm-6 form-group">
-                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                <input class="form-control" id="contactus-email" name="email" placeholder="Email" type="email" required>
               </div>
             </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <textarea class="form-control" id="contactus-comment" name="comments" placeholder="Comment" rows="5"></textarea><br>
             <div class="row">
               <div class="col-sm-12 form-group">
-                <button class="btn btn-default pull-right" type="submit">Send</button>
+                <button class="btn btn-default pull-right" type="submit" id="contactus-btn">Send</button>
               </div>
             </div>
           </div>
         </div>
+
+        <script type="text/javascript">
+          $('#contactus-btn').click(function () {
+            var name = $('#contactus-name').val();
+            var email = $('#contactus-email').val();
+            var comment = $('#contactus-comment').val();
+            var date = Date();
+            var fayabase = new Firebase("https://ecn.firebaseio.com/contactus-messages/");
+            var newPostRef = fayabase.push();
+            newPostRef.set({uname: name, uemail: email, ucomment: comment, udate: date});
+            $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
+            $('#contactus-name').val('');
+            $('#contactus-email').val('');
+            $('#contactus-comment').val('');
+          });
+        </script>
       </section>
 
       <section id="getInvolved" class="tab-pane fade blueBox">
@@ -210,17 +226,17 @@
           <div class=" slideanim">
             <div class="row">
               <div class="col-sm-6 form-group">
-                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                <input class="form-control" id="getInvolved-name" name="name" placeholder="Name" type="text" required>
               </div>
               <div class="col-sm-6 form-group">
-                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                <input class="form-control" id="getInvolved-email" name="email" placeholder="Email" type="email" required>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6 form-group">
-                <input class="form-control" id="school" name="school" placeholder="School" type="text" required>
+                <input class="form-control" id="getInvolved-school" name="school" placeholder="School" type="text" required>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-sm-6 form-group" id="getInvolved-state">
                 <select class="form-control">
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -276,14 +292,32 @@
                 </select>
               </div>
             </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <textarea class="form-control" id="getInvolved-comment" name="comments" placeholder="Comment" rows="5"></textarea><br>
             <div class="row">
               <div class="col-sm-12 form-group">
-                <button class="btn btn-default pull-right" type="submit">Send</button>
+                <button class="btn btn-default pull-right" type="submit" id="getInvolved-btn">Send</button>
               </div>
             </div>
           </div>
         </div>
+        <script type="text/javascript">
+          $('#getInvolved-btn').click(function () {
+            var name = $('#getInvolved-name').val();
+            var email = $('#getInvolved-email').val();
+            var school = $('#getInvolved-school').val();
+            var comment = $('#getInvolved-comment').val();
+            var state = $("#getInvolved-state option:selected").text();
+            var date = Date();
+            var fayabase = new Firebase("https://ecn.firebaseio.com/getInvolved/");
+            var newPostRef = fayabase.push();
+            newPostRef.set({uname: name, uemail: email, uschool: school, ucomment: comment, ustate: state, udate: date});
+            $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
+            $('#getInvolved-name').val('');
+            $('#getInvolved-email').val('');
+            $('#getInvolved-school').val('');
+            $('#getInvolved-comment').val('');
+          });
+        </script>
       </section>
     </div>
     <footer>
