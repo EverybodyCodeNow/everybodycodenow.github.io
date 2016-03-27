@@ -1,16 +1,19 @@
 /*CSS by ShiboTheCoder*/
 
+
 /*Le Font*/
+
 @font-face {
   font-family: 'Bariol_Regular';
   src: url(./Bariol_Regular.otf);
 }
 
 /*Le body and le html*/
+
 html, body {
   height: 100%;
 }
-html{
+html {
   background: #FFF url(../homepage.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -39,15 +42,17 @@ footer {
 }
 
 /*Phagocyte*/
+
 .container {
   margin: auto auto;
-  width: 80%;
+  width: 70%;
   /*
   box-shadow: skyblue 0px 0px 19px, white 0px 0px 19px, skyblue 0px 0px 19px;*/
   padding: 0px;
 }
 
 /*Did someone say navigation?*/
+
 .navbar {
   background-color: rgba(245, 245, 243, 1);
   position: fixed;
@@ -80,6 +85,7 @@ a.navbar-brand > img {
 }
 
 /*Pretty translucent blue boxes --> Nvm! They ain't blue no more, but I'm not changing the name xD*/
+
 .blueBox {
   background-color: rgba(31, 190, 243, 0.7);
   background-color: rgba(255, 255, 255, 0.7);
@@ -135,14 +141,16 @@ a.navbar-brand > img {
 }
 
 /*About Page*/
+
 #aboutUs {
-font-size: 16px !important;
-color: #000;}
-#swetha-box{
+  font-size: 16px !important;
+  color: #000;
   margin-top: 10px;
+}
+#swetha-box {
   background-color: white;
 }
-#swetha-box > p{
+#swetha-box > p {
   margin: auto;
   width: 60%;
 }
@@ -150,14 +158,12 @@ color: #000;}
   width: 300px;
   height: auto;
 }
-
 .team-bio > figure > img {
   width: 70%;
   max-height: 200px;
   height: 200px;
   border-radius: 100px;
 }
-
-.team-bio > p{
+.team-bio > p {
   display: none;
 }

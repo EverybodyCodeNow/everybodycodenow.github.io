@@ -30,7 +30,7 @@
           <a class="navbar-brand" href="./"><img src="logo.png" alt=""/>Everybody Code Now!</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-left nav-tabs">
+          <ul class="nav navbar-nav navbar-left nav-tabs" id="myTabs">
             <li class="active">
               <a data-toggle="tab" href="#home">Home</a>
             </li>
@@ -103,8 +103,8 @@
       </section>
 
       <section id="aboutUs" class="tab-pane fade">
-        <h3 class="blueBox">About us</h3>
-        <p style="font-size:18px; border-bottom-right-radius:25px; border-bottom-left-radius:25px;" class="blueBox">
+        <h1 class="blueBox" style="border-top-right-radius:25px; border-top-left-radius:25px;">About us</h1>
+        <p style="font-size:18px;" class="blueBox">
           Everybody Code Now! Is a non-profit organization that works to empower the next generation of leaders in computing to transform their future and help lead their communities towards a new era of technical expertise and entrepreneurship from exposure
           to basic programming skills. Through Everybody Code Now’s various camps, workshops, and mentorship opportunities, Everybody Code Now shows students that with determination, hard work, and a couple lines of code, the future is theirs for the making.
         </p>
@@ -125,7 +125,8 @@
           </p>
           <p>
 
-            She can be reached at contact@swetha.us
+            She can be reached at
+            <a href="mailto:contact@swetha.us">contact@swetha.us</a>
           </p>
         </div>
 
@@ -166,13 +167,17 @@
             <div class="col-sm-4 team-bio" style="background-color:lavender;">
               <figure><img src="./images/headshots/Teresa Pho.jpg" alt=""/></figure>
               <h3>Teresa Pho, Southern California</h3>
-  <p>Now a senior, Teresa Pho was born and raised in Southern California all throughout her life. With technology developing all around her, she was able to take up graphic designing and web designing as a hobby where she mentors kids from her local community every weekend to expose themselves in this field. She is experienced in Adobe Photoshop, Adobe Illustrator, Adobe InDesign, AutoCAD Inventor, GIMP, and Aptana. Graphic designing and web designing has become a passion for her ever since she picked it up in middle school where she was able to combine both art and programming! As a student who grew up with many financial restrictions and lack of resources, she actively participates in her community to help others in the same situation as her rise and grow! When she's not busy with her tutoring or running her CSF club, she is either watching Teen Wolf or reading some contemporary romance novels!</p></div>
+              <p>Now a senior, Teresa Pho was born and raised in Southern California all throughout her life. With technology developing all around her, she was able to take up graphic designing and web designing as a hobby where she mentors kids from her local
+                community every weekend to expose themselves in this field. She is experienced in Adobe Photoshop, Adobe Illustrator, Adobe InDesign, AutoCAD Inventor, GIMP, and Aptana. Graphic designing and web designing has become a passion for her ever since she
+                picked it up in middle school where she was able to combine both art and programming! As a student who grew up with many financial restrictions and lack of resources, she actively participates in her community to help others in the same situation as
+                her rise and grow! When she's not busy with her tutoring or running her CSF club, she is either watching Teen Wolf or reading some contemporary romance novels!</p>
+            </div>
           </div>
         </div>
         <script type="text/javascript">
-          $('.team-bio').hover(function(){
+          $('.team-bio').hover(function () {
             $(this).children('p').fadeIn();
-          }, function(){
+          }, function () {
             $(this).children('p').fadeOut();
           });
         </script>
@@ -283,5 +288,12 @@
     </div>
     <footer>
       &copy; 2016 Everybody Code Now</footer>
+    <script type="text/javascript">
+      tab = window.location.hash;
+      $('#myTabs a[href="' + tab + '"]').tab('show');
+      $('#myTabs a').click(function () {
+        window.location.hash = $(this).attr('href');
+      });
+    </script>
   </body>
 </html>
