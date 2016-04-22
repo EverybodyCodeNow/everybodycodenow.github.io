@@ -70,278 +70,274 @@
       <section id="home" class="tab-pane fade in active">
 
         <div id="" class="blueBox gallery">
-          <h3 style=""><span class="glyphicon glyphicon-picture">Gallery</h3>
-          <div id="gallery_slideshow"></div>
-          <div id="gallery_thumbnails"></div>
-          <div id="gallery_album_descriptions"></div>
-          <div id="gallery_albums"></div>
-        </div>
-
-        <script src="gallery.js"></script>
-
-        <div class="blueBox" id="upcomingEvents">
           <h3>
-            <span class="glyphicon glyphicon-calendar"></span>Upcoming events:</h3>
-          <table class="table table-hover">
-            <tbody>
-              <tr class="danger">
-                <td colspan="3">Sorry, there are no upcoming events yet!</td>
-              </tr>
-              <tr class="success" style="display:none">
-                <td>October 2016</td>
-                <td>HTML Workshop</td>
-                <td>
-                  <button type="button" class="btn btn-primary" name="button">Sign Up!</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-        <div class="blueBox" id="whereAreWe" style="display:none;">
-          <h3>
-            <img src="http://www.pd4pic.com/images/location-pointer-pin-google-map-red.png" alt=""/>
-            Where we are:
-          </h3>
-          <div id="map"></div>
-        </div>
-        <!-- <script src="map.js"></script> -->
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script> -->
-      </section>
-
-      <section id="aboutUs" class="tab-pane fade">
-        <h1 class="blueBox" style="border-top-right-radius:25px; border-top-left-radius:25px;">About us</h1>
-        <p style="font-size:18px;" class="blueBox">
-          Everybody Code Now! Is a non-profit organization that works to empower the next generation of leaders in computing to transform their future and help lead their communities towards a new era of technical expertise and entrepreneurship from exposure
-          to basic programming skills. Through Everybody Code Now’s various camps, workshops, and mentorship opportunities, Everybody Code Now shows students that with determination, hard work, and a couple lines of code, the future is theirs for the making.
-        </p>
-
-        <div id="swetha-box" class="blueBox">
-          <figure><img src="./images/headshots/Swetha.jpg" alt=""/></figure>
-          <h2>Swetha Prabakaran, Founder and CEO</h2>
-          <p>
-            Before her freshman year of high school, Swetha had no idea what Computer Science entailed and never imagined that one day she’d be teaching kids to code. However, she took a Java class as a ninth grader and hasn’t looked back since.
-          </p>
-          <p>
-            Currently, a junior at Thomas Jefferson High School for Science and Technology(TJHSST), Swetha takes application development courses and will work in her school’s Mobile and Web Application Development Laboratory next year. She hopes to major in CS
-            in college. She loves using technology to benefit the community, but loves inspiring students to do the same even more!
-          </p>
-          <p>
-            Swetha is an active member of her school's Model UN Team and chapter of FBLA, and is also a member of the swim team. She has been learning Bharathanatyam, a form of classical South Indian dance, for more than half of her life. In her free time,
-            Swetha loves listening to music, reading, baking, and making really bad puns.
-          </p>
-          <p>
-
-            She can be reached at
-            <a href="mailto:contact@swetha.us">contact@swetha.us</a>
-          </p>
-        </div>
-
-        <div class="container-fluid blueBox">
-          <h1>Meet the Team!</h1>
-          <div class="row">
-            <div class="col-sm-4 team-bio" style="background-color:lavender;">
-              <figure><img src="./images/headshots/Shannon Yan.jpg" alt=""/></figure>
-              <h3>Shannon Yan, CSS Chicas Director</h3>
-              <p>Born in the heart of Silicon Valley, Shannon Yan was always surrounded by computer science but didn’t realize her passion for it until her sophomore year of high school when she took an Intro to Computing class. Inspired by influential women such
-                as Sheryl Sandberg and Reshma Saujani, she quickly dove into the field and started coding her own projects whenever she had the chance. What fascinates her most about programming is that anyone who learns to code instantly has the opportunity to
-                create a positive change in the world as well as gains the ability to enable and empower others. As national director of CSS Chicas, she hopes to pay it forward by enabling other girls her age to discover their love for coding and in the process
-                better their communities as well. In the near future, Shannon hopes to start her own tech company in Silicon Valley geared towards providing internet and computer access to people in developing countries and to show young women that anyone can be a
-                CEO. In her free time, Shannon loves kickboxing, reading self-help novels, dancing to her favorite Taylor Swift songs, competing in SWAT competitions, and serving as captain of her high school’s cheerleading team!</p>
+            <span class="glyphicon glyphicon-picture">Gallery
+            </h3>
+            <div class="dropdown" >
+              <button class="btn btn-primary dropdown-toggle" id ="gallery_album_nav_btn" type="button" data-toggle="dropdown">Select Album
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="gallery_album_nav"></ul>
             </div>
-            <div class="col-sm-4 team-bio" style="background-color:lavenderblush;">
-              <figure><img src="./images/headshots/Kimberly Do.png" alt=""/></figure>
-              <h3>Kimberly Do, Director of Design</h3>
-              <p>Kimberly Do is a sophomore at her school's International Baccalaureate Program. In middle school, she self-studied HTML and CSS as she began to nurture her growing fascination for computer science. Eventually, as she entered high school, she
-                advocated for computer science programs at her school, joined science, robotics, and math clubs, and won an Affiliate Award from the NCWIT. These days, she dabbles in web design and illustration whenever she isn't busy with a variety of club
-                activities.
-              </p>
-            </div>
-            <div class="col-sm-4 team-bio" style="background-color:lavender;">
-              <figure><img src="./images/headshots/Yashwee Kothari.jpg" alt=""/></figure>
-              <h3>Yashwee Kothari, CodeLeaders Director</h3>
-              <p>Yashwee is a sophomore at Morris County School of Technology in the Academy of Computer and Information Sciences. Her interest in computer science first began in 7th grade in her Robotics class. Yashwee is proficient in Java, HTML and CSS.
-                Whenever she has time, she loves to code websites and programs. Yashwee is the co-Founder and Director of her school’s first hackathon, hackMCST, and is also 2015 and 2016 New Jersey NCWIT Affiliate Award Recipient. As the national director of
-                CodeLeaders, Yashwee aspires to make CodeLeaders a program where not only can students learn, but also have the opportunities to show their skills. She hopes that this program will help engender a community of programmers around the nation and help
-                today’s students become the CodeLeaders of tomorrow. In her free time, Yashwee enjoys listening to music, watching movies, or surfing the internet.</p>
-            </div>
+            <div id="gallery_albums"></div>
           </div>
-        </div>
 
-        <div class="container-fluid blueBox">
-          <h1>Regional Coordinators</h1>
-          <div class="row">
-            <div class="col-sm-4 team-bio" style="background-color:lavender;">
-              <figure><img src="./images/headshots/Teresa Pho.jpg" alt=""/></figure>
-              <h3>Teresa Pho, Southern California</h3>
-              <p>Now a senior, Teresa Pho was born and raised in Southern California all throughout her life. With technology developing all around her, she was able to take up graphic designing and web designing as a hobby where she mentors kids from her local
-                community every weekend to expose themselves in this field. She is experienced in Adobe Photoshop, Adobe Illustrator, Adobe InDesign, AutoCAD Inventor, GIMP, and Aptana. Graphic designing and web designing has become a passion for her ever since she
-                picked it up in middle school where she was able to combine both art and programming! As a student who grew up with many financial restrictions and lack of resources, she actively participates in her community to help others in the same situation as
-                her rise and grow! When she's not busy with her tutoring or running her CSF club, she is either watching Teen Wolf or reading some contemporary romance novels!</p>
+          <script src="gallery.js"></script>
+
+          <div class="blueBox" id="upcomingEvents">
+            <h3>
+              <span class="glyphicon glyphicon-calendar"></span>Upcoming events:</h3>
+            <div class="">
+              <h2>October 2016 - Hackathon
+                <button type="button" class="btn btn-primary" name="button">Sign Up!</button>
+              </h2>
             </div>
+
           </div>
-        </div>
-        <script type="text/javascript">
-          $('.team-bio').hover(function () {
-            $(this).children('p').fadeIn();
-          }, function () {
-            $(this).children('p').fadeOut();
-          });
-        </script>
-      </section>
-      <section id="contactUs" class="tab-pane fade blueBox">
-        <h3>Contact us</h3>
-        <div class="row">
-          <div class=" slideanim">
+          <div class="blueBox" id="whereAreWe" style="display:none;">
+            <h3>
+              <img src="http://www.pd4pic.com/images/location-pointer-pin-google-map-red.png" alt=""/>
+              Where we are:
+            </h3>
+            <div id="map"></div>
+          </div>
+          <!-- <script src="map.js"></script> -->
+          <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script> -->
+        </section>
+
+        <section id="aboutUs" class="tab-pane fade">
+          <h1 class="blueBox" style="border-top-right-radius:25px; border-top-left-radius:25px;">About us</h1>
+          <p style="font-size:18px;" class="blueBox">
+            Everybody Code Now! Is a non-profit organization that works to empower the next generation of leaders in computing to transform their future and help lead their communities towards a new era of technical expertise and entrepreneurship from exposure
+            to basic programming skills. Through Everybody Code Now’s various camps, workshops, and mentorship opportunities, Everybody Code Now shows students that with determination, hard work, and a couple lines of code, the future is theirs for the making.
+          </p>
+
+          <div id="swetha-box" class="blueBox">
+            <figure><img src="./images/headshots/Swetha.jpg" alt=""/></figure>
+            <h2>Swetha Prabakaran, Founder and CEO</h2>
+            <p>
+              Before her freshman year of high school, Swetha had no idea what Computer Science entailed and never imagined that one day she’d be teaching kids to code. However, she took a Java class as a ninth grader and hasn’t looked back since.
+            </p>
+            <p>
+              Currently, a junior at Thomas Jefferson High School for Science and Technology(TJHSST), Swetha takes application development courses and will work in her school’s Mobile and Web Application Development Laboratory next year. She hopes to major in CS
+              in college. She loves using technology to benefit the community, but loves inspiring students to do the same even more!
+            </p>
+            <p>
+              Swetha is an active member of her school's Model UN Team and chapter of FBLA, and is also a member of the swim team. She has been learning Bharathanatyam, a form of classical South Indian dance, for more than half of her life. In her free time,
+              Swetha loves listening to music, reading, baking, and making really bad puns.
+            </p>
+            <p>
+
+              She can be reached at
+              <a href="mailto:contact@swetha.us">contact@swetha.us</a>
+            </p>
+          </div>
+
+          <div class="container-fluid blueBox">
+            <h1>Meet the Team!</h1>
             <div class="row">
-              <div class="col-sm-6 form-group">
-                <input class="form-control" id="contactus-name" name="name" placeholder="Name" type="text" required>
+              <div class="col-sm-4 team-bio" style="background-color:lavender;">
+                <figure><img src="./images/headshots/Shannon Yan.jpg" alt=""/></figure>
+                <h3>Shannon Yan, CSS Chicas Director</h3>
+                <p>Born in the heart of Silicon Valley, Shannon Yan was always surrounded by computer science but didn’t realize her passion for it until her sophomore year of high school when she took an Intro to Computing class. Inspired by influential women such
+                  as Sheryl Sandberg and Reshma Saujani, she quickly dove into the field and started coding her own projects whenever she had the chance. What fascinates her most about programming is that anyone who learns to code instantly has the opportunity to
+                  create a positive change in the world as well as gains the ability to enable and empower others. As national director of CSS Chicas, she hopes to pay it forward by enabling other girls her age to discover their love for coding and in the process
+                  better their communities as well. In the near future, Shannon hopes to start her own tech company in Silicon Valley geared towards providing internet and computer access to people in developing countries and to show young women that anyone can be a
+                  CEO. In her free time, Shannon loves kickboxing, reading self-help novels, dancing to her favorite Taylor Swift songs, competing in SWAT competitions, and serving as captain of her high school’s cheerleading team!</p>
               </div>
-              <div class="col-sm-6 form-group">
-                <input class="form-control" id="contactus-email" name="email" placeholder="Email" type="email" required>
+              <div class="col-sm-4 team-bio" style="background-color:lavenderblush;">
+                <figure><img src="./images/headshots/Kimberly Do.png" alt=""/></figure>
+                <h3>Kimberly Do, Director of Design</h3>
+                <p>Kimberly Do is a sophomore at her school's International Baccalaureate Program. In middle school, she self-studied HTML and CSS as she began to nurture her growing fascination for computer science. Eventually, as she entered high school, she
+                  advocated for computer science programs at her school, joined science, robotics, and math clubs, and won an Affiliate Award from the NCWIT. These days, she dabbles in web design and illustration whenever she isn't busy with a variety of club
+                  activities.
+                </p>
               </div>
-            </div>
-            <textarea class="form-control" id="contactus-comment" name="comments" placeholder="Comment" rows="5"></textarea><br>
-            <div class="row">
-              <div class="col-sm-12 form-group">
-                <button class="btn btn-default pull-right" type="submit" id="contactus-btn">Send</button>
+              <div class="col-sm-4 team-bio" style="background-color:lavender;">
+                <figure><img src="./images/headshots/Yashwee Kothari.jpg" alt=""/></figure>
+                <h3>Yashwee Kothari, CodeLeaders Director</h3>
+                <p>Yashwee is a sophomore at Morris County School of Technology in the Academy of Computer and Information Sciences. Her interest in computer science first began in 7th grade in her Robotics class. Yashwee is proficient in Java, HTML and CSS.
+                  Whenever she has time, she loves to code websites and programs. Yashwee is the co-Founder and Director of her school’s first hackathon, hackMCST, and is also 2015 and 2016 New Jersey NCWIT Affiliate Award Recipient. As the national director of
+                  CodeLeaders, Yashwee aspires to make CodeLeaders a program where not only can students learn, but also have the opportunities to show their skills. She hopes that this program will help engender a community of programmers around the nation and help
+                  today’s students become the CodeLeaders of tomorrow. In her free time, Yashwee enjoys listening to music, watching movies, or surfing the internet.</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <script type="text/javascript">
-          $('#contactus-btn').click(function () {
-            var name = $('#contactus-name').val();
-            var email = $('#contactus-email').val();
-            var comment = $('#contactus-comment').val();
-            var date = Date();
-            var fayabase = new Firebase("https://ecn.firebaseio.com/contactus-messages/");
-            var newPostRef = fayabase.push();
-            newPostRef.set({uname: name, uemail: email, ucomment: comment, udate: date});
-            $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
-            $('#contactus-name').val('');
-            $('#contactus-email').val('');
-            $('#contactus-comment').val('');
-          });
-        </script>
-      </section>
-
-      <section id="getInvolved" class="tab-pane fade blueBox">
-        <h3>Get involved</h3>
-        <div class="row">
-          <div class=" slideanim">
+          <div class="container-fluid blueBox">
+            <h1>Regional Coordinators</h1>
             <div class="row">
-              <div class="col-sm-6 form-group">
-                <input class="form-control" id="getInvolved-name" name="name" placeholder="Name" type="text" required>
-              </div>
-              <div class="col-sm-6 form-group">
-                <input class="form-control" id="getInvolved-email" name="email" placeholder="Email" type="email" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 form-group">
-                <input class="form-control" id="getInvolved-school" name="school" placeholder="School" type="text" required>
-              </div>
-              <div class="col-sm-6 form-group" id="getInvolved-state">
-                <select class="form-control">
-                  <option value="AL">Alabama</option>
-                  <option value="AK">Alaska</option>
-                  <option value="AZ">Arizona</option>
-                  <option value="AR">Arkansas</option>
-                  <option value="CA">California</option>
-                  <option value="CO">Colorado</option>
-                  <option value="CT">Connecticut</option>
-                  <option value="DE">Delaware</option>
-                  <option value="DC">District Of Columbia</option>
-                  <option value="FL">Florida</option>
-                  <option value="GA">Georgia</option>
-                  <option value="HI">Hawaii</option>
-                  <option value="ID">Idaho</option>
-                  <option value="IL">Illinois</option>
-                  <option value="IN">Indiana</option>
-                  <option value="IA">Iowa</option>
-                  <option value="KS">Kansas</option>
-                  <option value="KY">Kentucky</option>
-                  <option value="LA">Louisiana</option>
-                  <option value="ME">Maine</option>
-                  <option value="MD">Maryland</option>
-                  <option value="MA">Massachusetts</option>
-                  <option value="MI">Michigan</option>
-                  <option value="MN">Minnesota</option>
-                  <option value="MS">Mississippi</option>
-                  <option value="MO">Missouri</option>
-                  <option value="MT">Montana</option>
-                  <option value="NE">Nebraska</option>
-                  <option value="NV">Nevada</option>
-                  <option value="NH">New Hampshire</option>
-                  <option value="NJ">New Jersey</option>
-                  <option value="NM">New Mexico</option>
-                  <option value="NY">New York</option>
-                  <option value="NC">North Carolina</option>
-                  <option value="ND">North Dakota</option>
-                  <option value="OH">Ohio</option>
-                  <option value="OK">Oklahoma</option>
-                  <option value="OR">Oregon</option>
-                  <option value="PA">Pennsylvania</option>
-                  <option value="RI">Rhode Island</option>
-                  <option value="SC">South Carolina</option>
-                  <option value="SD">South Dakota</option>
-                  <option value="TN">Tennessee</option>
-                  <option value="TX">Texas</option>
-                  <option value="UT">Utah</option>
-                  <option value="VT">Vermont</option>
-                  <option value="VA">Virginia</option>
-                  <option value="WA">Washington</option>
-                  <option value="WV">West Virginia</option>
-                  <option value="WI">Wisconsin</option>
-                  <option value="WY">Wyoming</option>
-                </select>
-              </div>
-            </div>
-            <textarea class="form-control" id="getInvolved-comment" name="comments" placeholder="Comment" rows="5"></textarea><br>
-            <div class="row">
-              <div class="col-sm-12 form-group">
-                <button class="btn btn-default pull-right" type="submit" id="getInvolved-btn">Send</button>
+              <div class="col-sm-4 team-bio" style="background-color:lavender;">
+                <figure><img src="./images/headshots/Teresa Pho.jpg" alt=""/></figure>
+                <h3>Teresa Pho, Southern California</h3>
+                <p>Now a senior, Teresa Pho was born and raised in Southern California all throughout her life. With technology developing all around her, she was able to take up graphic designing and web designing as a hobby where she mentors kids from her local
+                  community every weekend to expose themselves in this field. She is experienced in Adobe Photoshop, Adobe Illustrator, Adobe InDesign, AutoCAD Inventor, GIMP, and Aptana. Graphic designing and web designing has become a passion for her ever since she
+                  picked it up in middle school where she was able to combine both art and programming! As a student who grew up with many financial restrictions and lack of resources, she actively participates in her community to help others in the same situation as
+                  her rise and grow! When she's not busy with her tutoring or running her CSF club, she is either watching Teen Wolf or reading some contemporary romance novels!</p>
               </div>
             </div>
           </div>
-        </div>
-        <script type="text/javascript">
-          $('#getInvolved-btn').click(function () {
-            var name = $('#getInvolved-name').val();
-            var email = $('#getInvolved-email').val();
-            var school = $('#getInvolved-school').val();
-            var comment = $('#getInvolved-comment').val();
-            var state = $("#getInvolved-state option:selected").text();
-            var date = Date();
-            var fayabase = new Firebase("https://ecn.firebaseio.com/getInvolved/");
-            var newPostRef = fayabase.push();
-            newPostRef.set({
-              uname: name,
-              uemail: email,
-              uschool: school,
-              ucomment: comment,
-              ustate: state,
-              udate: date
+          <script type="text/javascript">
+            $('.team-bio').hover(function () {
+              $(this).children('p').fadeIn();
+            }, function () {
+              $(this).children('p').fadeOut();
             });
-            $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
-            $('#getInvolved-name').val('');
-            $('#getInvolved-email').val('');
-            $('#getInvolved-school').val('');
-            $('#getInvolved-comment').val('');
-          });
-        </script>
-      </section>
-    </div>
-    <footer>
-      &copy; 2016 Everybody Code Now</footer>
-    <script type="text/javascript">
-      tab = window.location.hash;
-      $('#myTabs a[href="' + tab + '"]').tab('show');
-      $('#myTabs a').click(function () {
-        window.location.hash = $(this).attr('href');
-      });
-    </script>
-  </body>
-</html>
+          </script>
+        </section>
+        <section id="contactUs" class="tab-pane fade blueBox">
+          <h3>Contact us</h3>
+          <div class="row">
+            <div class=" slideanim">
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="contactus-name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="contactus-email" name="email" placeholder="Email" type="email" required>
+                </div>
+              </div>
+              <textarea class="form-control" id="contactus-comment" name="comments" placeholder="Comment" rows="5"></textarea><br>
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <button class="btn btn-default pull-right" type="submit" id="contactus-btn">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script type="text/javascript">
+            $('#contactus-btn').click(function () {
+              var name = $('#contactus-name').val();
+              var email = $('#contactus-email').val();
+              var comment = $('#contactus-comment').val();
+              var date = Date();
+              var fayabase = new Firebase("https://ecn.firebaseio.com/contactus-messages/");
+              var newPostRef = fayabase.push();
+              newPostRef.set({uname: name, uemail: email, ucomment: comment, udate: date});
+              $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
+              $('#contactus-name').val('');
+              $('#contactus-email').val('');
+              $('#contactus-comment').val('');
+            });
+          </script>
+        </section>
+
+        <section id="getInvolved" class="tab-pane fade blueBox">
+          <h3>Get involved</h3>
+          <div class="row">
+            <div class=" slideanim">
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="getInvolved-name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="getInvolved-email" name="email" placeholder="Email" type="email" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="getInvolved-school" name="school" placeholder="School" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group" id="getInvolved-state">
+                  <select class="form-control">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                </div>
+              </div>
+              <textarea class="form-control" id="getInvolved-comment" name="comments" placeholder="Comment" rows="5"></textarea><br>
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <button class="btn btn-default pull-right" type="submit" id="getInvolved-btn">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+            $('#getInvolved-btn').click(function () {
+              var name = $('#getInvolved-name').val();
+              var email = $('#getInvolved-email').val();
+              var school = $('#getInvolved-school').val();
+              var comment = $('#getInvolved-comment').val();
+              var state = $("#getInvolved-state option:selected").text();
+              var date = Date();
+              var fayabase = new Firebase("https://ecn.firebaseio.com/getInvolved/");
+              var newPostRef = fayabase.push();
+              newPostRef.set({
+                uname: name,
+                uemail: email,
+                uschool: school,
+                ucomment: comment,
+                ustate: state,
+                udate: date
+              });
+              $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
+              $('#getInvolved-name').val('');
+              $('#getInvolved-email').val('');
+              $('#getInvolved-school').val('');
+              $('#getInvolved-comment').val('');
+            });
+          </script>
+        </section>
+      </div>
+      <footer>
+        &copy; 2016 Everybody Code Now</footer>
+      <script type="text/javascript">
+        tab = window.location.hash;
+        $('#myTabs a[href="' + tab + '"]').tab('show');
+        $('#myTabs a').click(function () {
+          window.location.hash = $(this).attr('href');
+        });
+      </script>
+    </body>
+  </html>
