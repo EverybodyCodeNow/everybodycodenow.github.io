@@ -68,6 +68,17 @@
       </header>
 
       <section id="home" class="tab-pane fade in active">
+
+        <div id="" class="blueBox gallery">
+          <h3 style=""><span class="glyphicon glyphicon-picture">Gallery</h3>
+          <div id="gallery_slideshow"></div>
+          <div id="gallery_thumbnails"></div>
+          <div id="gallery_album_descriptions"></div>
+          <div id="gallery_albums"></div>
+        </div>
+
+        <script src="gallery.js"></script>
+
         <div class="blueBox" id="upcomingEvents">
           <h3>
             <span class="glyphicon glyphicon-calendar"></span>Upcoming events:</h3>
@@ -87,15 +98,15 @@
           </table>
 
         </div>
-        <div class="blueBox" id="whereAreWe">
+        <div class="blueBox" id="whereAreWe" style="display:none;">
           <h3>
             <img src="http://www.pd4pic.com/images/location-pointer-pin-google-map-red.png" alt=""/>
             Where we are:
           </h3>
           <div id="map"></div>
         </div>
-        <script src="map.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+        <!-- <script src="map.js"></script> -->
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script> -->
       </section>
 
       <section id="aboutUs" class="tab-pane fade">
@@ -306,7 +317,14 @@
             var date = Date();
             var fayabase = new Firebase("https://ecn.firebaseio.com/getInvolved/");
             var newPostRef = fayabase.push();
-            newPostRef.set({uname: name, uemail: email, uschool: school, ucomment: comment, ustate: state, udate: date});
+            newPostRef.set({
+              uname: name,
+              uemail: email,
+              uschool: school,
+              ucomment: comment,
+              ustate: state,
+              udate: date
+            });
             $(this).parent().append('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>');
             $('#getInvolved-name').val('');
             $('#getInvolved-email').val('');

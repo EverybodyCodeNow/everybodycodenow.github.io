@@ -15,7 +15,7 @@
   body{
   padding-top: 0px;}
   /*Phagocyte*/
-  .container {
+  .container,footer {
     margin: auto auto;
     width: 90%;
   }

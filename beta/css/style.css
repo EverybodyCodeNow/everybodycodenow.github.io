@@ -33,12 +33,11 @@ footer {
   background-color: rgba(245, 245, 243, 0.6);
   text-align: center;
   height: 30px;
-  width: 60%;
+  width: 70%;
   padding: 8px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 5px;
-  box-shadow: white 0px 0px 30px, black 0px 0px 30px, white 0px 0px 30px;
 }
 
 /*Phagocyte*/
