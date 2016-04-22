@@ -155,15 +155,13 @@ color: white;
 #gallery_album_nav_btn>div:hover{
 background-color: skyblue;
 }
-/*
-#gallery_album2>div{
-  display: inline;
+.carousel-inner>div>img{
+  max-height: 500px;
+  height: 500px !important;
+  width: 100%;
+
 }
 
-#gallery_album_nav>div:hover{
-background-color: skyblue;
-}
-*/
 /*Where are we?*/
 
 #map {
@@ -180,11 +178,17 @@ background-color: skyblue;
 
 #aboutUs {
   font-size: 16px !important;
-  color: #000;
+  color: #FFF;
   margin-top: 10px;
 }
 #swetha-box {
-  background-color: white;
+  border: solid #FFF 4px;
+margin-right: 10px;
+padding: 10px 15px 10px 15px;
+text-align: center;
+background-color: #222;
+cursor: pointer;
+color: white;
 }
 #swetha-box > p {
   margin: auto;
@@ -202,4 +206,13 @@ background-color: skyblue;
 }
 .team-bio > p {
   display: none;
+}.team-bio > h3 {
+  color: white;
+}
+.team-bio{
+  border: solid #FFF 4px;
+  text-align: center;
+  background-color: #222;
+  cursor: pointer;
+  color: white;
 }

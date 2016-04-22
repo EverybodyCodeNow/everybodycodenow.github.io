@@ -11,7 +11,8 @@ function getPhotos(photoset_id) {
       var imageid = photo.id;
       var imagesecret = photo.secret;
       var flickrAPI_farmURL = "https://farm" + farmid + ".staticflickr.com/" + serverid + "/" + imageid + "_" + imagesecret + "_c.jpg";
-      $('#' + photoset_id + '>.carousel-inner').append("<div class='item "+classactive+"'><img style='width:100%;' src='" + flickrAPI_farmURL + "'></div>");
+      $('#' + photoset_id + '>.carousel-inner').append("<div class='item "+classactive+"'><img src='" + flickrAPI_farmURL + "'></div>");
+      $('#' + photoset_id + '>.carousel-indicators').append('<li data-target="#'+ photoset_id +'" data-slide-to="'+i+'" class="'+classactive+'"></li>')
       classactive='';
     }
   });
@@ -33,7 +34,7 @@ function showAlbum(albumid) {
       }
       $('#gallery_albums').append("<div id='" + photoset_id + "' class='carousel slide album' data-ride='carousel'><div class='carousel-inner' role='listbox'><h3>" + photoset_name + "</h3></div></div>");
       $('#gallery_album_nav').append("<li><a onClick='showAlbum(\"" + photoset_id + "\")'>" + photoset_name + "</a></li>");
-
+      $('#'+photoset_id ).append('<ol class="carousel-indicators"></ol>');
       $('#'+photoset_id ).append('<a class="left carousel-control" href="#'+ photoset_id +'" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#'+ photoset_id +'" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>');
       getPhotos(photoset_id);
     }
