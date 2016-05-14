@@ -75,7 +75,7 @@
  /*Gallery*/
   .carousel-inner>div>img{
     max-height: 300px;
-    height: 300px !important;
+    height: 230px !important;
     width: 100%;
 
   }
