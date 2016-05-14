@@ -70,7 +70,7 @@
             </li>
 
             <li style="display:none;"  id="cPanelButton">
-              <a style="cursor:pointer">
+              <a data-toggle="tab" href="#cpanel">
                 <span class="glyphicon glyphicon-asterisk"></span>
                 CPanel</a>
             </li>
@@ -356,6 +356,9 @@
           });
         </script>
       </section>
+      <section id="cpanel" class="tab-pane fade blueBox">
+        <h3>CPanel</h3>
+      </section>
     </div>
     <footer>
       &copy; 2016 Everybody Code Now</footer>
@@ -365,7 +368,7 @@
       $('#myTabs a[href="' + tab + '"]').tab('show');
       showNavLogo(tab);
       //Change tabs
-      $('#myTabs a').click(function () {
+      $('#myTabs a, #cPanelButton a').click(function () {
         window.location.hash = $(this).attr('href');
         $(window).scrollTop(0);
         tab = window.location.hash;
@@ -464,14 +467,10 @@
       var ref = new Firebase("https://ecn.firebaseio.com/users/");
       ref.onAuth(function (authData) {
         if (authData) {
-          console.log('yah');
           ref.once("value", function (snapshot) {
-            console.log('yah2');
             snapshot.forEach(function (childSnapshot) {
               var childData = childSnapshot.val();
-                console.log(childData['uid']);
               if (childData['uid'] == authData.uid) {
-                console.log('yahppppppp');
                 $('#welcomeText').html('<a>Welcome, ' + childData['uname'] + '!</a>');
               }
             });
@@ -479,12 +478,13 @@
           $('#loginButton').hide();
           $('#logoutButton').fadeIn();
           $('#cPanelButton').fadeIn();
-            $('#welcomeText').fadeIn();
+          $('#welcomeText').fadeIn();
         } else {
           $('#welcomeText').hide();
           $('#loginButton').fadeIn();
           $('#logoutButton').hide();
           $('#cPanelButton').hide();
+            $('#cpanel').html("");
         }
       });
       $('#logoutButton').on('click', function () {
