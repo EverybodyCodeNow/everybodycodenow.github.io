@@ -1,13 +1,10 @@
 /*Teeni weeni scrweens, aww so cute*/
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1500px) {
 
-  a {
-  font-size: 9px;
-  }
   a.navbar-brand {
     width: auto;
-    display: none;
+    position: relative;
   }
 
 }
@@ -22,10 +19,10 @@
 
   /*Did someone say navigation?*/
     body > nav > div > div.navbar-header > button {
-      border-color: #53C2E1 !important;
+      border-color: #FFF !important;
     }
     body > nav > div > div.navbar-header > button > span {
-      background-color: #53C2E1;
+      background-color: #FFF;
     }
   .navbar {
     position: relative;
@@ -39,20 +36,25 @@
   a.navbar-brand {
     display: block;
       width: auto;
+      position: relative;
+  }
+  #myTabs > li > a,#myNavbar > ul.nav.navbar-nav.navbar-right > li > a  {
+    text-align: center;
+    font-size: 20px;
   }
 
   /*Pretty translucent blue boxes --> Nvm! They ain't blue no more, but I'm not changing the name xD*/
   .blueBox {
-    background-color: rgba(31, 190, 243, 0.7);
-    background-color: rgba(255, 255, 255, 0.7);
-    text-align: center;
     padding: 20px;
     margin: 0px;
-    color: #555;
   }
   .blueBox > h3 > img {
     width: 20px;
     margin-top: -10px;
+  }
+
+  .bluebox_rotatedtext{
+    display: none;
   }
 
   /* Head(er), shoulder, knees and toes, knees and tooooes.*/
@@ -64,7 +66,6 @@
     position: relative;
   }
   #logo > img {
-    display: none;
   }
   .slogan {
     padding: 0px;
