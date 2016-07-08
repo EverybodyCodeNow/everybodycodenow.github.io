@@ -63,8 +63,6 @@ footer {
 /*Did someone say navigation?*/
 
 .navbar {
-  background-color: rgba(245, 245, 243, 1);
-  background-color: #1fbef3;
   position: fixed;
   width: 100%;
   margin-top: -50px;
@@ -72,14 +70,14 @@ footer {
   box-shadow: #0FF 0px 0px 20px;
 }
 a {
-  color: #FFF;
+  color: #000;
   font-size: 14px;
   font-weight: bold;
 }
 a>span .nav_text{
 font-family: Arial !important;}
 a.navbar-brand {
-  color: #FFF;
+  color: #000;
   position: absolute;
   width: 100%;
   left: 0;
@@ -100,25 +98,4 @@ a.navbar-brand > img {
   background-color: #FFF;
   border-radius: 20px;
   padding: 3px;
-}
-
-
-/* Head(er), shoulder, knees and toes, knees and tooooes.*/
-
-#logo {
-  font-weight: bold;
-  font-size: 65px;
-  padding-top: 90px;
-	font-family: 'MarkoOne-Regular';
-  color: black;
-}
-#logo > img {
-  display: block;
-  margin: auto;
-  z-index: 100;
-}
-.slogan {
-  padding: 100px;
-  padding-top: 0px;
-  padding-bottom: 20px;
 }
