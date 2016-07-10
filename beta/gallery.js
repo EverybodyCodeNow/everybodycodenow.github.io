@@ -18,9 +18,12 @@ function getPhotos(photoset_id) {
   });
 }
 
-function showAlbum(albumid) {
+function showAlbum(albumid, albumName) {
   $('.album').hide();
   $('#' + albumid).fadeIn();
+  $('#gallery_album_nav > li').show();
+  $('#galleryBtn_'+albumid).hide();
+  $('#galleryBtn_default').html(albumName);
 }
   first_album = 1;
   //Get all the albums
@@ -31,12 +34,13 @@ function showAlbum(albumid) {
       var photoset_id = photosets[x].id;
       if (x == 0) {
         first_album = photoset_id;
+          first_albumname = photoset_name;
       }
-      $('#gallery_albums').append("<div id='" + photoset_id + "' class='carousel slide album' data-ride='carousel'><div class='carousel-inner' role='listbox'><h3>" + photoset_name + "</h3></div></div>");
-      $('#gallery_album_nav').append("<li><a onClick='showAlbum(\"" + photoset_id + "\")'>" + photoset_name + "</a></li>");
+      $('#gallery_albums').append("<div id='" + photoset_id + "' class='carousel slide album' data-ride='carousel'><div class='carousel-inner' role='listbox'></div></div>");
+      $('#gallery_album_nav').append("<li id ='galleryBtn_"+photoset_id+"'><a onClick='showAlbum(\"" + photoset_id + "\",\"" + photoset_name + "\")'>" + photoset_name + "</a></li>");
       $('#'+photoset_id ).append('<ol class="carousel-indicators"></ol>');
       $('#'+photoset_id ).append('<a class="left carousel-control" href="#'+ photoset_id +'" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#'+ photoset_id +'" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>');
       getPhotos(photoset_id);
     }
-     showAlbum(first_album);
+     showAlbum(first_album,first_albumname);
   });
