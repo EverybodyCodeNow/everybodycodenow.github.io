@@ -32,11 +32,70 @@
             <h4 class="blueBox">Everybody Code Now! works to empower the next generation of youth through exposure to basic programming skills.</h4>
         </header>
 
+        <section class="box" id="SigningUp">
+            <form id="signup">
+                <h2>Sign Up Now!</h2>
+                <h4>It's Free. Must be 13 or older. Get your parent's permission before you sign up.</h4>
+                <h5>Returning student? Click here!</h5>
+                <div class="forms">
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="password" placeholder="Password" />
+                </div>
+                <div class="forms">
+                    <input type="tel" name="phone" placeholder="Phone" />
+                    <div class="forms">
+                        <input type="text" name="firstName" placeholder="First Name" />
+                        <input type="text" name="lastName" placeholder="Last Name" />
+                    </div>
+                    <div class="forms">
+                        <label>Date of Birth </label>
+                        <select name="month"></select>
+                        <select name="day" /></select>
+                        <select name="year"></select>
+                    </div>
+                    <div class="forms">
+                        <input type="text" name="school" placeholder="School" />
+                    </div>
+                    <div class="forms">
+                        <input type="text" name="address" placeholder="Address" />
+                        <input type="number" name="zipcode" placeholder="Zipcode" />
+                        <select name="state"></select>
+                        <select name="country"></select>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6Lc22BsTAAAAADv2aym_3rYctiGqS5U0PynXbrxU"></div>
+                    <span id="signupMessage"></span>
+                    <input type="submit" name="submit" value="Submit" />
+            </form>
+            <form id="signin">
+                <h2>Welcome back! </h2>
+                <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="submit" value="submit" /><span id="signinMessage"></span>
+            </form>
+            <form id="programSignup">
+                <h2>Pick a program. Make sure you can attend the workshop at the time and location you choose! </h2>
+                <select name="programName"></select>
+                Attending:
+                <div id="attendingStudents"></div>
+                <input type="email" name="email" placeholder="Prefered Email" />
+                <textarea name="specialNotes">Special notes, dietary restrictions, etc.. </textarea>
+                <h3>Update Emergency Contacts </h3>
+                <input type="text" name="emergency_name" placeholder="Emergency Contact Name" />
+                <input type="email" name="emergency_email" placeholder="Emergency Contact Email" />
+                <input type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" />
+                <input type="submit" value="submit" />
+            </form>
+        </section>
+
+    </section>
+
+    <aside class="">
+
         <section class="box gallery" id="gallery">
 
-          <div id="gallery_albums"></div>
+            <div id="gallery_albums"></div>
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" id="gallery_album_nav_btn" type="button" data-toggle="dropdown"><span id ="galleryBtn_default">Select Album</span>
+                <button class="btn btn-primary dropdown-toggle" id="gallery_album_nav_btn" type="button" data-toggle="dropdown"><span id="galleryBtn_default">Select Album</span>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" id="gallery_album_nav"></ul>
@@ -44,49 +103,6 @@
 
             <script src="gallery.js"></script>
         </section>
-    </section>
-
-    <aside class="">
-        <form id="signin">
-            <h2>Welcome back! </h2>
-            <input type="email" name="email" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
-            <input type="submit" value="submit" /><span id="signinMessage"></span></form>
-        <form id="signup">
-            <h2>Sign Up Now For <select class="programName" name="programName"></select></h2> On __ At __ Location __
-            <h4>It's Free. Must be 13 or older. Get your parent's permission before you sign up.</h4> Returning student? Click here!
-            <input type="email" name="email" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
-            <input type="tel" name="phone" placeholder="Phone" />
-            <input type="text" name="firstName" placeholder="First Name" />
-            <input type="text" name="lastName" placeholder="Last Name" />
-            <label>Date of Birth </label>
-            <select name="month"></select>
-            <select name="day" /></select>
-            <select name="year"></select>
-            <input type="text" name="school" placeholder="School" />
-            <input type="text" name="address" placeholder="Address" />
-            <input type="number" name="zipcode" placeholder="Zipcode" />
-            <select name="state"></select>
-            <select name="country"></select>
-            I am not a robot.
-            <span id="signupMessage"></span>
-            <input type="submit" name="submit" value="Submit" />
-        </form>
-        <form id="programSignup">
-            <h2>Pick a program. Make sure you can attend the workshop at the time and location you choose! </h2>
-            <select name="programName"></select>
-            Attending:
-            <div id="attendingStudents"></div>
-            <input type="email" name="email" placeholder="Prefered Email" />
-            <textarea name="specialNotes">Special notes, dietary restrictions, etc.. </textarea>
-            <h3>Update Emergency Contacts </h3>
-            <input type="text" name="emergency_name" placeholder="Emergency Contact Name" />
-            <input type="email" name="emergency_email" placeholder="Emergency Contact Email" />
-            <input type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" />
-            <input type="submit" value="submit" />
-        </form>
-
     </aside>
 
     <section class="box" id="about"> </section>

@@ -40,6 +40,7 @@ h1,h2,h3,h4,h5,h6{
   z-index: 100;
 }
 #homescreen >header {
+  margin-top: 100px;
   text-align: center;
   padding: 20px;
   color: #222;
@@ -50,8 +51,6 @@ h1,h2,h3,h4,h5,h6{
   	font-family: 'MarkoOne-Regular';
 }
 #gallery {
-  margin: auto;
-  width: auto;
     width: 300px;
       height: 300px;
       text-align: center;
@@ -74,6 +73,26 @@ border-radius: 50px;
 .carousel-control.left{
   background: none !important;
 }
+#SigningUp {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.g-recaptcha{
+  margin: auto auto;
+  width: 300px;
+}
+.forms > input {
+  width: 300px;
+  font-size: 20px;
+  padding: 5px;
+}
+.forms >select {
+  width: auto;
+  font-size: 20px;
+  padding: 5px;  
+}
 
 /*Le aside -> userbox, signup form, etc..*/
 aside{
@@ -81,12 +100,3 @@ aside{
   width: 30%;
   margin-top: 5%;
 }
-aside > form {
-  display: none;
-  width: 300px;
-  padding: 30px;
-  border-radius: 25px;
-
-}
-aside> form>input{
-display: block;}
