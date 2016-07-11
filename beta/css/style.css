@@ -1,102 +1,114 @@
 /*CSS by ShiboTheCoder*/
+
+
 /*Le Font*/
 
 @font-face {
-  font-family: 'Bariol_Regular';
-  src: url(./Bariol_Regular.otf);
+    font-family: 'Bariol_Regular';
+    src: url(./Bariol_Regular.otf);
 }
-
 @font-face {
     font-family: 'MarkoOne-Regular';
-    src:url(./MarkoOne-Regular.ttf) format('truetype');
+    src: url(./MarkoOne-Regular.ttf) format('truetype');
 }
 @font-face {
-    font-family:  'PT-Sans-Italic';
-    src:url(./PT-Sans-Italic.ttf) format('truetype');
+    font-family: 'PT-Sans-Italic';
+    src: url(./PT-Sans-Italic.ttf) format('truetype');
 }
 
 /*Le body and le html*/
-*{
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
 body {
-  font-family: Bariol_Regular, sans-serif;
+    font-family: Bariol_Regular, sans-serif;
+    padding-top: 30px;
 }
-h1,h2,h3,h4,h5,h6{
-  cursor: default;
+h1, h2, h3, h4, h5, h6 {
+    cursor: default;
+}
+footer {
+    clear: both;
+    text-align: center;
 }
 
 /*Le Homescreen -> Logo and gallery*/
-#homescreen{
-  width: 70%;
-  min-width: 800px;
-  float: left;
+
+#homescreen {
+    width: 70%;
+    min-width: 800px;
+    float: left;
+    height: auto;
 }
-#homescreen >header > h1> img {
-  display: block;
-  margin: auto;
-  z-index: 100;
+#homescreen>header> h1> img {
+    display: block;
+    margin: auto;
+    z-index: 100;
+    width: 100px
 }
-#homescreen >header {
-  margin-top: 100px;
-  text-align: center;
-  padding: 20px;
-  color: #222;
+#homescreen>header {
+    text-align: center;
+    padding: 20px;
+    color: #222;
 }
-#homescreen > header > h1 {
+#homescreen>header:hover {}
+#homescreen> header> h1 {
     font-weight: bold;
-    font-size: 65px;
-  	font-family: 'MarkoOne-Regular';
+    font-size: 35px;
+    font-family: 'MarkoOne-Regular';
 }
 #gallery {
-    width: 300px;
-      height: 300px;
-      text-align: center;
+    width: 50%;
+    text-align: center;
+    margin: auto;
 }
-#gallery_album_nav_btn{
-  margin-top: 1px;
+#gallery_album_nav_btn {
+    margin-bottom: 1px;
+    background-color: #1FBEF3
 }
-#gallery_album_nav{
-  cursor: pointer;
+#gallery_album_nav {
+    cursor: pointer;
+    background-color: #1FBEF3
 }
 .carousel-inner>.item>img {
-border-radius: 50px;
-  width: 300px;
+    width: 100%;
     height: 300px;
+    border-radius: 50px;
+        border: #1FBEF3 solid 10px;
 }
-.carousel-control.right{
-  background: none !important;
+.carousel-control.right {
+    background: none !important;
 }
-
-.carousel-control.left{
-  background: none !important;
+.carousel-control.left {
+    background: none !important;
 }
 #SigningUp {
-  width: 80%;
-  margin: auto;
-  text-align: center;
-  margin-bottom: 30px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.g-recaptcha{
-  margin: auto auto;
-  width: 300px;
+.g-recaptcha {
+    margin: auto auto;
+    width: 300px;
 }
-.forms > input {
-  width: 300px;
-  font-size: 20px;
-  padding: 5px;
+.forms> input {
+    width: 300px;
+    font-size: 20px;
+    padding: 5px;
 }
-.forms >select {
-  width: auto;
-  font-size: 20px;
-  padding: 5px;  
+.forms>select {
+    width: auto;
+    font-size: 20px;
+    padding: 5px;
 }
 
 /*Le aside -> userbox, signup form, etc..*/
-aside{
-  float: right;
-  width: 30%;
-  margin-top: 5%;
+
+aside {
+    float: right;
+    width: 30%;
 }
