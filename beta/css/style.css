@@ -38,8 +38,7 @@ footer {
 /*Le Homescreen -> Logo and gallery*/
 
 #homescreen {
-    width: 70%;
-    min-width: 800px;
+    width: 40%;
     float: left;
     height: auto;
 }
@@ -61,7 +60,7 @@ footer {
     font-family: 'MarkoOne-Regular';
 }
 #gallery {
-    width: 50%;
+    width: 80%;
     text-align: center;
     margin: auto;
 }
@@ -97,12 +96,12 @@ footer {
 }
 .forms> input {
     width: 300px;
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px;
 }
 .forms>select {
     width: auto;
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px;
 }
 
