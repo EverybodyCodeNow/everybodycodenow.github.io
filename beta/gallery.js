@@ -9,7 +9,7 @@ function getPhotos(photoset_id) {
             var serverid = photo.server;
             var imageid = photo.id;
             var imagesecret = photo.secret;
-            var flickrAPI_farmURL = "https://farm" + farmid + ".staticflickr.com/" + serverid + "/" + imageid + "_" + imagesecret + "_z.jpg";
+            var flickrAPI_farmURL = "https://farm" + farmid + ".staticflickr.com/" + serverid + "/" + imageid + "_" + imagesecret + "_c.jpg";
             $('#' + photoset_id + '>.carousel-inner').append("<div class='item " + classactive + "'><img src='" + flickrAPI_farmURL + "'></div>");
             //$('#' + photoset_id + '>.carousel-indicators').append('<li data-target="#'+ photoset_id +'" data-slide-to="'+i+'" class="'+classactive+'"></li>')
             classactive = '';
@@ -19,11 +19,11 @@ function getPhotos(photoset_id) {
 
 function showAlbum(albumid, albumName) {
     if ($('#' + albumid).length == 0) {
-      $('#gallery_albums').append("<div id='" + albumid + "' class='carousel slide album' data-ride='carousel'><div class='carousel-inner' role='listbox'></div></div>");
+        $('#gallery_albums').append("<div id='" + albumid + "' class='carousel slide album' data-ride='carousel'><div class='carousel-inner' role='listbox'></div></div>");
 
         $('#' + albumid).append('<ol class="carousel-indicators"></ol>');
         $('#' + albumid).append('<a class="left carousel-control" href="#' + albumid + '" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#' + albumid + '" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>');
-getPhotos(albumid);
+        getPhotos(albumid);
     }
     $('.album').hide();
     $('#' + albumid).fadeIn();
@@ -42,7 +42,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photosets.getList
             first_album = photoset_id;
             first_albumname = photoset_name;
         }
-          $('#gallery_album_nav').append("<li id ='galleryBtn_" + photoset_id + "'><a onClick='showAlbum(\"" + photoset_id + "\",\"" + photoset_name + "\")'>" + photoset_name + "</a></li>");
-          }
+        $('#gallery_album_nav').append("<li id ='galleryBtn_" + photoset_id + "'><a onClick='showAlbum(\"" + photoset_id + "\",\"" + photoset_name + "\")'>" + photoset_name + "</a></li>");
+    }
     showAlbum(first_album, first_albumname);
 });

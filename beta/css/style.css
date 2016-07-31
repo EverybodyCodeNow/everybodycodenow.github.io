@@ -1,8 +1,6 @@
 /*CSS by ShiboTheCoder*/
 
-
-/*Le Font*/
-
+/*Le Fonts*/
 @font-face {
     font-family: 'Bariol_Regular';
     src: url(./Bariol_Regular.otf);
@@ -17,97 +15,290 @@
 }
 
 /*Le body and le html*/
-
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
+html, body {
+    height: 100%;
+    width: 100%;
+}
 body {
     font-family: Bariol_Regular, sans-serif;
-    padding-top: 30px;
 }
 h1, h2, h3, h4, h5, h6 {
     cursor: default;
 }
-footer {
+.box {
+    padding: 40px;
+    min-width: 100%;
     clear: both;
-    text-align: center;
-}
-
-/*Le Homescreen -> Logo and gallery*/
-
-#homescreen {
-    width: 40%;
-    float: left;
+    min-height: 100%;
     height: auto;
+    width: 100%;
 }
-#homescreen>header> h1> img {
-    display: block;
-    margin: auto;
+footer {
+    text-align: center;
+    width: 100%;
+    clear: both;
+    margin-top: -86px;
+}
+.btn {
+    box-shadow: grey 0px 0px 5px;
+}
+.btn:hover {
+    box-shadow: grey 0px 0px 20px;
+}
+
+/*Fixed Navigation bar at top*/
+body>header {
+    position: fixed;
+    padding: 0px;
+    color: #FFF;
+    background-color: #2196F3;
+    min-height: 64px;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
     z-index: 100;
-    width: 100px
 }
-#homescreen>header {
-    text-align: center;
-    padding: 20px;
-    color: #222;
+body>header> img {
+    width: 40px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    margin: 5px;
+    margin-bottom: 25px;
 }
-#homescreen>header:hover {}
-#homescreen> header> h1 {
-    font-weight: bold;
-    font-size: 35px;
+body> header> a, body> header> span {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 18px;
     font-family: 'MarkoOne-Regular';
+    color: inherit;
+    text-decoration: none;
 }
-#gallery {
-    width: 80%;
+body> header> span {
+    font-size: 17px;
+    text-transform: capitalize;
+    margin-left: 20px;
+}
+body> header> a:hover {
+    text-decoration: none;
+    color: #EEE;
+}
+/*Social Buttons at the top*/
+.social_buttons {
+    float: right;
     text-align: center;
+}
+.social_buttons>a {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    display: inline-block;
+    margin-right: 5px;
+}
+.social_buttons>a:hover {
+    width: 36px;
+    height: 36px;
+}
+.social_facebook {
+    background-image: url('../images/social/facebook.png');
+}
+.social_twitter {
+    background-image: url('../images/social/twitter.png');
+}
+.social_github {
+    background-image: url('../images/social/github.png');
+}
+.social_g {
+    background-image: url('../images/social/g+.png');
+}
+.social_insta {
+    background-image: url('../images/social/insta.png');
+}
+.social_linkedin {
+    background-image: url('../images/social/linkedin.png');
+}
+.social_youtube {
+    background-image: url('../images/social/youtube.png');
+}
+
+/*Home Container*/
+#home{
+  padding-top: 150px;
+}
+#home>div {
+    float: left;
+}
+#home>.lefty {
+    width: 50%;
+    text-align: center;
+    padding-top: 5%;
+}
+#home>.righty {
+    width: 50%;
     margin: auto;
+    min-width: 340px;
+    text-align: center;
+}
+#home>.righty>section> div> form> div {
+    text-align: left;
+}
+#home>.righty>section {
+    min-width: 340px;
+    max-width: 340px;
+    margin: auto;
+    background-color: #BBDEFB;
+    padding: 10px;
+}
+/*#auth is the section that houses all the forms for signin/signup and program registration.*/
+#auth>div {
+    margin: auto;
+    background-color: #E3F2FD;
+    border-radius: 4px;
+    padding: 10px;
+}
+#signup> div.g-recaptcha {
+    text-align: center;
+}
+.authBtn {
+    margin-top: 30px;
+}
+.authBtn> span {
+    border-radius: 50px;
+}
+
+/*Programs Container*/
+#offered_programs {
+    margin-top: 50px;
+    background-color: #E3F2FD;
+    padding: 40px;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    zoom: 1;
+}
+.img-responsive:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/*Gallery and Photos*/
+#photos {
+    text-align: center;
+    width: 800px;
+    background-color: #64B5F6;
+    padding: 40px;
+    border-radius: 5px;
+}
+#photos> div.dropdown> h1 {
+    display: inline-block;
+    font-size: 36px;
+    padding: 0px;
+    margin: 0px;
 }
 #gallery_album_nav_btn {
-    margin-bottom: 1px;
-    background-color: #1FBEF3
+    background: #E8EAF6;
+    color: #000;
+    border: none;
+    font-size: 24px;
+    display: inline-block;
+    padding: 10px;
+    margin-left: 20px;
 }
 #gallery_album_nav {
     cursor: pointer;
-    background-color: #1FBEF3
+    font-size: 24px;
+    background: #E8EAF6;
+}
+#gallery_albums {
+    margin-top: 20px;
 }
 .carousel-inner>.item>img {
-    width: 100%;
-    height: 300px;
-    border-radius: 50px;
-        border: #1FBEF3 solid 10px;
+    margin: auto;
+    width: 800px;
+    height: 400px;
+    border: solid 4px #2196F3;
+    border-radius: 5px;
 }
 .carousel-control.right {
     background: none !important;
+    color: #000;
 }
 .carousel-control.left {
     background: none !important;
+    color: #000;
 }
-#SigningUp {
-    width: 80%;
-    margin: auto;
+
+/*Contact Us*/
+#contactUs {
+    background-color: #BBDEFB;
+    padding: 40px;
+    border-radius: 5px;
+}
+#contactUs >h1 {margin-bottom: 40px;}
+
+/*About us*/
+#aboutus {
+    background-color: #E3F2FD;
+    padding: 40px;
+    border-radius: 5px;
+    margin-top: 10px;
     text-align: center;
-    margin-bottom: 30px;
 }
-.g-recaptcha {
-    margin: auto auto;
-    width: 300px;
+#aboutus>h1 {
+    text-align: left;
 }
-.forms> input {
-    width: 300px;
-    font-size: 15px;
-    padding: 5px;
+#aboutus> .profilecard {
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
 }
-.forms>select {
-    width: auto;
-    font-size: 15px;
-    padding: 5px;
+#aboutus> .profilecard>img {
+    width: 200px;
+    height: 200px;
 }
 
-/*Le aside -> userbox, signup form, etc..*/
 
-aside {
-    float: right;
-    width: 30%;
+/*Bottom Navigation*/
+#bottom_navigation {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 56px;
+    padding: 0px;
+    overflow: auto;
+    zoom: 1;
+    background-color: #FFF;
+}
+.action {
+    cursor: pointer;
+    text-align: center;
+    float: left;
+    width: 25%;
+    margin: 0px;
+    padding: 12px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    color: grey;
+}
+.action> label {
+    font-size: 12px;
+    cursor: pointer;
+}
+.action_active, .action:hover, .action:focus {
+    text-decoration: none;
+    color: #2196F3;
+    padding-top: 6px;
+}
+.action_active> label {
+    font-size: 14px;
 }
