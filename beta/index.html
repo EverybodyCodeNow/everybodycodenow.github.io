@@ -50,6 +50,11 @@
 
                     <form id="signup">
                         <div class="forms">
+                            <label>Your Name*: </label>
+                            <input class="form-control" type="text" name="firstName" placeholder="First Name" />
+                            <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+                        </div>
+                        <div class="forms">
                             <label>Email and Password*: </label>
                             <input class="form-control" type="email" name="email" placeholder="Email" />
                             <input class="form-control" type="password" name="password" placeholder="Password" />
@@ -58,11 +63,46 @@
                             <label>Phone: </label>
                             <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
                         </div>
+                        <label>Prove that you're not a robot*: </label>
+                        <div class="g-recaptcha" data-sitekey="6Lc22BsTAAAAADv2aym_3rYctiGqS5U0PynXbrxU"></div>
+                        <span id="signupMessage"></span>
                         <div class="forms">
-                            <label>Your Name*: </label>
-                            <input class="form-control" type="text" name="firstName" placeholder="First Name" />
-                            <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+                            <input class="form-control" type="submit" name="submit" value="Submit" />
                         </div>
+                    </form>
+                </div>
+                <div>
+                    <h1>Sign in</h1>
+                    <form id="signin">
+                        <div class="forms">
+                            <label>Email and Password*:</label>
+                            <input class="form-control" type="email" name="email" placeholder="Email" />
+                            <input class="form-control" type="password" name="password" placeholder="Password" />
+                        </div>
+                        <span id="signinMessage"></span>
+                        <div class="forms">
+                            <input class="form-control" type="submit" value="submit" />
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <h1>Congratulations!</h1>
+                    <h2>You are ready to sign up for an upcoming event!</h2>
+                    <h5>Make sure you can attend the workshop at the time and location you choose! </h5>
+                    <form id="programSignup">
+                        <label>Choose the program you're attending:</label>
+                        <select class="form-control" name="programName"></select>
+                        <label>Attending:</label>
+                        <div id="attendingStudents"></div>
+                        <div class="forms">
+                            <label>Prefered Contact Email:</label>
+                            <input class="form-control" type="email" name="email" placeholder="Prefered Email" />
+                        </div>
+                        <div class="forms">
+                            <label>Is there anything you'd like to tell us?:</label>
+                            <textarea class="form-control" name="specialNotes">Special notes, dietary restrictions, etc.. </textarea>
+                        </div>
+
                         <div class="forms">
                             <label>Date of Birth*: </label>
                             <select class="form-control" name="month">
@@ -542,46 +582,6 @@
                                 <option value="ZM">Zambia</option>
                                 <option value="ZW">Zimbabwe</option>
                             </select>
-                        </div>
-
-                        <label>Prove that you're not a robot*: </label>
-                        <div class="g-recaptcha" data-sitekey="6Lc22BsTAAAAADv2aym_3rYctiGqS5U0PynXbrxU"></div>
-                        <span id="signupMessage"></span>
-                        <div class="forms">
-                            <input class="form-control" type="submit" name="submit" value="Submit" />
-                        </div>
-                    </form>
-                </div>
-                <div>
-                    <h1>Sign in</h1>
-                    <form id="signin">
-                        <div class="forms">
-                            <label>Email and Password*:</label>
-                            <input class="form-control" type="email" name="email" placeholder="Email" />
-                            <input class="form-control" type="password" name="password" placeholder="Password" />
-                        </div>
-                        <span id="signinMessage"></span>
-                        <div class="forms">
-                            <input class="form-control" type="submit" value="submit" />
-                        </div>
-                    </form>
-                </div>
-                <div>
-                    <h1>Congratulations!</h1>
-                    <h2>You are ready to sign up for an upcoming event!</h2>
-                    <h5>Make sure you can attend the workshop at the time and location you choose! </h5>
-                    <form id="programSignup">
-                        <label>Choose the program you're attending:</label>
-                        <select class="form-control" name="programName"></select>
-                        <label>Attending:</label>
-                        <div id="attendingStudents"></div>
-                        <div class="forms">
-                            <label>Prefered Contact Email:</label>
-                            <input class="form-control" type="email" name="email" placeholder="Prefered Email" />
-                        </div>
-                        <div class="forms">
-                            <label>Is there anything you'd like to tell us?:</label>
-                            <textarea class="form-control" name="specialNotes">Special notes, dietary restrictions, etc.. </textarea>
                         </div>
 
                         <label>Emergency Contact</label>

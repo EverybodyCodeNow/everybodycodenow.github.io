@@ -34,9 +34,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 40px;
     min-width: 100%;
     clear: both;
-    min-height: 100%;
     height: auto;
     width: 100%;
+    text-align: center;
 }
 footer {
     text-align: center;
@@ -132,7 +132,7 @@ body> header> a:hover {
 
 /*Home Container*/
 #home{
-  padding-top: 150px;
+  padding-top: 100px;
 }
 #home>div {
     float: left;
@@ -140,7 +140,6 @@ body> header> a:hover {
 #home>.lefty {
     width: 50%;
     text-align: center;
-    padding-top: 5%;
 }
 #home>.righty {
     width: 50%;

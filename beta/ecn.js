@@ -132,9 +132,57 @@ $("#programSignup").submit(function(event) {
     var $emergency_name = $("#programSignup > div>input[name = 'emergency_name']");
     var $emergency_email = $("#programSignup >div> input[name = 'emergency_email']");
     var $emergency_phone = $("#programSignup > div>input[name = 'emergency_phone']");
+    var $dobDay = $("#signup > div>  select[name = 'day']");
+    var $dobMonth = $("#signup > div>  select[name = 'month']");
+    var $dobYear = $("#signup > div>  select[name = 'year']");
+    var $school = $("#signup > div>  input[name = 'school']");
+    var $address = $("#signup > div>  input[name = 'address']");
+    var $city = $("#signup > div>  input[name = 'city']");
+    var $state = $("#signup > div>  select[name = 'state']");
+    var $country = $("#signup > div>  select[name = 'country']");
+    var $zipcode = $("#signup > div>  input[name = 'zipcode']");
+    if ($dobDay.val() == "") {
+        passVali = false;
+        $dobDay.css("border", "solid 2px red");
+    }
+    if ($dobMonth.val() == "") {
+        passVali = false;
+        $dobMonth.css("border", "solid 2px red");
+    }
+    if ($dobYear.val() == "") {
+        passVali = false;
+        $dobYear.css("border", "solid 2px red");
+    }
+    if ($school.val() == "") {
+        passVali = false;
+        $school.css("border", "solid 2px red");
+    }
+    if ($address.val() == "") {
+        passVali = false;
+        $address.css("border", "solid 2px red");
+    }
+    if ($city.val() == "") {
+        passVali = false;
+        $city.css("border", "solid 2px red");
+    }
+    if ($state.val() == "") {
+        passVali = false;
+        $state.css("border", "solid 2px red");
+    }
+    if ($zipcode.val() == "") {
+        passVali = false;
+        $zipcode.css("border", "solid 2px red");
+    }
     var studentData = {
         "uid": id,
         "email": $email.val(),
+        "school": $school.val(),
+        "dob": $dobMonth.val() + "/" + $dobDay.val() + "/" + $dobYear.val(),
+        "address": $address.val(),
+        "city": $city.val(),
+        "zipcode": $zipcode.val(),
+        "state": $state.val(),
+        "country": $country.val(),
         "specialNotes": $specialNotes.val(),
         "programName": $programName.key(),
         "programId": $programName.val(),
@@ -190,16 +238,6 @@ $("#signup").submit(function(event) {
     var $phone = $("#signup > div>  input[name = 'phone']");
     var $firstName = $("#signup > div>  input[name = 'firstName']");
     var $lastName = $("#signup > div>  input[name = 'lastName']");
-    var $dobDay = $("#signup > div>  select[name = 'day']");
-    var $dobMonth = $("#signup > div>  select[name = 'month']");
-    var $dobYear = $("#signup > div>  select[name = 'year']");
-    var $school = $("#signup > div>  input[name = 'school']");
-    var $address = $("#signup > div>  input[name = 'address']");
-    var $city = $("#signup > div>  input[name = 'city']");
-    var $state = $("#signup > div>  select[name = 'state']");
-    var $country = $("#signup > div>  select[name = 'country']");
-    var $zipcode = $("#signup > div>  input[name = 'zipcode']");
-    var $programName = $("#signup > div>  select[name = 'programName']");
 
     event.preventDefault();
     var passVali = true;
@@ -220,38 +258,7 @@ $("#signup").submit(function(event) {
         passVali = false;
         $lastName.css("border", "solid 2px red");
     }
-    if ($dobDay.val() == "") {
-        passVali = false;
-        $dobDay.css("border", "solid 2px red");
-    }
-    if ($dobMonth.val() == "") {
-        passVali = false;
-        $dobMonth.css("border", "solid 2px red");
-    }
-    if ($dobYear.val() == "") {
-        passVali = false;
-        $dobYear.css("border", "solid 2px red");
-    }
-    if ($school.val() == "") {
-        passVali = false;
-        $school.css("border", "solid 2px red");
-    }
-    if ($address.val() == "") {
-        passVali = false;
-        $address.css("border", "solid 2px red");
-    }
-    if ($city.val() == "") {
-        passVali = false;
-        $city.css("border", "solid 2px red");
-    }
-    if ($state.val() == "") {
-        passVali = false;
-        $state.css("border", "solid 2px red");
-    }
-    if ($zipcode.val() == "") {
-        passVali = false;
-        $zipcode.css("border", "solid 2px red");
-    }
+
     if (!passVali) {
         $("#signupMessage").html("Please fill in the red boxes.");
         alert("Please fill in the red boxes.");
@@ -289,13 +296,6 @@ $("#signup").submit(function(event) {
                     "uid": id,
                     "firstName": $firstName.val(),
                     "lastName": $lastName.val(),
-                    "school": $school.val(),
-                    "dob": $dobMonth.val() + "/" + $dobDay.val() + "/" + $dobYear.val(),
-                    "address": $address.val(),
-                    "city": $city.val(),
-                    "zipcode": $zipcode.val(),
-                    "state": $state.val(),
-                    "country": $country.val(),
                     "phone": $phone.val()
                 };
                 firebase.database().ref("students").push(studentData);
