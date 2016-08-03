@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             var isAdmin = snapshot.val().isAdmin;
             if (isAdmin == true) {
                 if ($('#adminBtn').length == 0) {
-                    $('.authBtn').append('<span class="btn btn-primary" id="adminBtn"><a href="admin.html" target="_blank" style="color:#FFF">Members Only</a></span>')
+                    $('.authBtn').append('<span class="btn btn-primary" id="adminBtn"><a href="members.html" target="_blank" style="color:#FFF">Members Page</a></span>')
                 } else {
                     $('#adminBtn').show();
                 }

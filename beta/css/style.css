@@ -34,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 40px;
     min-width: 100%;
     clear: both;
+    min-height: 70%;
     height: auto;
     width: 100%;
     text-align: center;
@@ -42,7 +43,7 @@ footer {
     text-align: center;
     width: 100%;
     clear: both;
-    margin-top: -86px;
+    margin-top: -106px;
 }
 .btn {
     box-shadow: grey 0px 0px 5px;
@@ -107,6 +108,12 @@ body> header> a:hover {
 .social_buttons>a:hover {
     width: 36px;
     height: 36px;
+}
+.social_slack{
+  background-image: url('https://a.slack-edge.com/0180/img/icons/app-256.png');
+}
+.social_trello{
+  background-image: url('https://trello-backgrounds.s3.amazonaws.com/favicon/7a2bbe4e6474b2d362674117e9a07539.png');
 }
 .social_facebook {
     background-image: url('../images/social/facebook.png');
@@ -242,6 +249,7 @@ body> header> a:hover {
     background-color: #BBDEFB;
     padding: 40px;
     border-radius: 5px;
+    min-height: 100%;
 }
 #contactUs >h1 {margin-bottom: 40px;}
 
@@ -252,6 +260,7 @@ body> header> a:hover {
     border-radius: 5px;
     margin-top: 10px;
     text-align: center;
+    margin-bottom: 60px;
 }
 #aboutus>h1 {
     text-align: left;
@@ -272,7 +281,7 @@ body> header> a:hover {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    height: 56px;
+    height: 70px;
     padding: 0px;
     overflow: auto;
     zoom: 1;
@@ -286,17 +295,21 @@ body> header> a:hover {
     margin: 0px;
     padding: 12px;
     padding-top: 8px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     color: grey;
 }
 .action> label {
     font-size: 12px;
     cursor: pointer;
+    display: block;
 }
 .action_active, .action:hover, .action:focus {
     text-decoration: none;
     color: #2196F3;
     padding-top: 6px;
+}
+.action:hover{
+  color: #333;
 }
 .action_active> label {
     font-size: 14px;
