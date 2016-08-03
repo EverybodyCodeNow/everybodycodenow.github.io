@@ -144,11 +144,11 @@ body> header> a:hover {
 #home>div {
     float: left;
 }
-#home>.lefty {
+.lefty {
     width: 50%;
     text-align: center;
 }
-#home>.righty {
+.righty {
     width: 50%;
     margin: auto;
     min-width: 340px;

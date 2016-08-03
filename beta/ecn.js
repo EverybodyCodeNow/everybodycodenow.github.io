@@ -12,7 +12,6 @@ $('#contactus-btn').click(function() {
     var $name = $('#contactus-name');
     var $email = $('#contactus-email');
     var $comment = $('#contactus-comment');
-    var date = Date();
     var passVali = true;
     if ($name.val() == "") {
         $name.css("border", "solid red 2px");
@@ -30,13 +29,13 @@ $('#contactus-btn').click(function() {
         $name.css("border", "none");
         $email.css("border", "none");
         $comment.css("border", "none");
-        var fayabase = new Firebase("https://everybodycodenow-d4f23.firebaseio.com/contactus-messages/");
+        var fayabase = firebase.database().ref("contactus-messages/");
         var newPostRef = fayabase.push();
         newPostRef.set({
             uname: $name.val(),
             uemail: $email.val(),
             ucomment: $comment.val(),
-            udate: date
+            udate: getUnixTime
         });
         $('#contactus_message').show().html('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>').fadeOut(5000);
         $('#contactus-name').val('');
@@ -49,25 +48,33 @@ $('#contactus-btn').click(function() {
 
 //Authentication Listener
 firebase.auth().onAuthStateChanged(function(user) {
+
+    function setLastOnline(user) {
+        if (user) {
+            var lastOnlines = firebase.database().ref("users/" + user.uid).update({
+                "lastOnline": getUnixTime()
+            });
+        }
+    }
+    var timer;
     if (user) {
         programSignup();
         var uid = user.uid;
-        firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
-            var isAdmin = snapshot.val().isAdmin;
-            if (isAdmin == true) {
-                if ($('#adminBtn').length == 0) {
-                    $('.authBtn').append('<span class="btn btn-primary" id="adminBtn"><a href="members.html" target="_blank" style="color:#FFF">Members Page</a></span>')
-                } else {
-                    $('#adminBtn').show();
-                }
-            }
-        });
-
+        if ($('#membersPageBtn').length == 0) {
+            $('.authBtn').append('<span class="btn btn-primary" id="membersPageBtn"><a href="members.html" target="_blank" style="color:#FFF">Members Page</a></span>')
+        } else {
+            $('#membersPageBtn').show();
+        }
         $('#programs_authMessage').html('You\'re not signed up for any programs. <a href="#home">Sign up now!</a>');
 
+        timer = setInterval(function() {
+            setLastOnline(user);
+        }, 60000);
+
     } else {
+        clearInterval(timer);
         showSignup();
-        $('#adminBtn').hide();
+        $('#membersPageBtn').hide();
         $('#programs_authMessage').html('You\'re not signed in. <a href="#home">Sign in or sign up</a> to see the programs you\'re registered for or have already attended!');
     }
 });
@@ -98,7 +105,7 @@ function programSignup(progId) {
     firebase.database().ref('/programs/').once('value').then(function(snapshot) {
         if (snapshot.numChildren() > 0) {
             $("#programSignup").show();
-                $("#noProgramMsg").hide();
+            $("#noProgramMsg").hide();
             firebase.database().ref('/programs/').on('child_added', function(data) {
                 data.val().text;
             });
@@ -177,6 +184,9 @@ $("#programSignup").submit(function(event) {
         "uid": id,
         "email": $email.val(),
         "school": $school.val(),
+        "dobDay": $dobDay.val(),
+        "dobMonth": $dobMonth.val(),
+        "dobYear": $dobYear.val(),
         "dob": $dobMonth.val() + "/" + $dobDay.val() + "/" + $dobYear.val(),
         "address": $address.val(),
         "city": $city.val(),
@@ -330,3 +340,15 @@ $(document).bind('scroll', function(e) {
         }
     });
 });
+
+
+
+function getUnixTime() {
+    return "" + Date.now();
+}
+
+function getUnixDate(timestamp) {
+    var dt = eval(timestamp);
+    var myDate = new Date(dt);
+    return (myDate.toLocaleString());
+}
