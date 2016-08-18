@@ -58,49 +58,32 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     var timer;
     if (user) {
+      alert("meow");
         programSignup();
         var uid = user.uid;
         if ($('#membersPageBtn').length == 0) {
-            $('.authBtn').append('<span class="btn btn-primary" id="membersPageBtn"><a href="members.html" target="_blank" style="color:#FFF">Members Page</a></span>')
+            $('.authBtn').append('<span class="btn btn-info" id="membersPageBtn"><a href="members.html" target="_blank" style="color:#FFF"><i class="material-icons">face</i><br>Members Page</a></span>')
         } else {
             $('#membersPageBtn').show();
         }
-        $('#programs_authMessage').html('You\'re not signed up for any programs. <a href="#home">Sign up now!</a>');
 
         timer = setInterval(function() {
             setLastOnline(user);
         }, 60000);
 
     } else {
+      alert("woof");
         clearInterval(timer);
         showSignup();
-        $('#membersPageBtn').hide();
-        $('#programs_authMessage').html('You\'re not signed in. <a href="#home">Sign in or sign up</a> to see the programs you\'re registered for or have already attended!');
-    }
+        $('#membersPageBtn').hide();  }
 });
-//Shows Signup Form
-function showSignup() {
-    $("#signin").parent().hide();
-    $("#programSignup").parent().hide();
-    $('.authBtn>span#authBtn').html('Sign In');
-    $('.authBtn>span#authBtn').attr("onclick", "showSignin();");
-    $("#signup").parent().show();
-}
-//Shows Sign in Form
-function showSignin() {
-    $("#signup").parent().hide();
-    $("#programSignup").parent().hide();
-    $("#signin").parent().show();
-    $('.authBtn>span#authBtn').html('Sign Up');
-    $('.authBtn>span#authBtn').attr("onclick", "showSignup();")
-}
 //Shows Program Sign Up form
 function programSignup(progId) {
     $("#signin").parent().hide();
     $("#signup").parent().hide();
     $("#programSignup").hide();
     $("#programSignup").parent().show();
-    $('.authBtn>span#authBtn').html('Sign Out');
+    $('.authBtn>span#authBtn').html('<i class="material-icons">power_settings_new</i><br>Sign Out');
     $('.authBtn>span#authBtn').attr("onclick", "signout();")
     firebase.database().ref('/programs/').once('value').then(function(snapshot) {
         if (snapshot.numChildren() > 0) {
@@ -322,24 +305,24 @@ $('.action').click(function() {
     $('.action').removeClass('action_active');
     $(this).addClass('action_active');
 });
-$(document).bind('scroll', function(e) {
-    $('.box').each(function() {
-        if (
-            $(this).offset().top < window.pageYOffset + 10
-            //begins before top
-            &&
-            $(this).offset().top + $(this).height() > window.pageYOffset + 10
-            //but ends in visible area
-            //+ 10 allows you to change hash before it hits the top border
-        ) {
-            var hash = $(this).attr('id');
-            window.location.hash = hash;
-            $('.action').removeClass('action_active');
-            $('.action[href="#' + hash + '"]').addClass('action_active');
-            $('body>header>span').html(hash);
-        }
-    });
-});
+// $(document).bind('scroll', function(e) {
+//     $('.box').each(function() {
+//         if (
+//             $(this).offset().top < window.pageYOffset + 10
+//             //begins before top
+//             &&
+//             $(this).offset().top + $(this).height() > window.pageYOffset + 10
+//             //but ends in visible area
+//             //+ 10 allows you to change hash before it hits the top border
+//         ) {
+//             var hash = $(this).attr('id');
+//             window.location.hash = hash;
+//             $('.action').removeClass('action_active');
+//             $('.action[href="#' + hash + '"]').addClass('action_active');
+//             $('body>header>span').html(hash);
+//         }
+//     });
+// });
 
 
 

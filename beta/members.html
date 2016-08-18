@@ -38,10 +38,31 @@
             overflow: auto;
         }
 
-        #personModalForm> div> div>input,#personModalForm> div> div>select,#programsInModal > tr > td> textarea  {
+        .modal {
+            width: 60%;
+            margin: auto;
+        }
+
+        .modal-header {
+            background-color: #2196F3;
+            color: white;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            overflow: auto;
+            zoom: 1;
+            text-align: center;
+            background-color: #eeeeee;
+        }
+
+        #personModalForm> div> div>input,
+        #personModalForm> div> div>select,
+        #programsInModal> tr> td> textarea {
             border: none;
             background: none;
             width: auto;
+            max-width: 100%;
         }
 
         #personModalForm> div> div>input:focus {
@@ -49,18 +70,12 @@
             background-color: white;
         }
 
-        .modal-body {
-            overflow: auto;
-            zoom: 1;
-            text-align: center;
+        #personModalForm> div>.forms {
+            float: left;
         }
 
-        .forms {
-            float: left;
-            margin: 40px;
-        }
-        table > thead > tr > th{
-          text-align: center;
+        table> thead> tr> th {
+            text-align: center;
         }
     </style>
 </head>
@@ -80,20 +95,38 @@
 
     <!-- Home Box -->
     <section class="box" id="home">
-        <div class="lefty">
+      <ul style="list-style:none;">
+        <li class="action tab">Events</li>
+          <li class="action tab">People</li>
+      </ul>
+        <div class="">
             <h1><i class="material-icons">&#xE85D;</i>Events</h1>
             <p>
                 <span class="btn btn-info btn-lg addEventBtn" data-toggle="modal" data-target="#addEvent">+ Add Event</span>
             </p>
+            <div class="table-responsive scrollbox">
+                <table class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody id="events">
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="righty">
-            <h1><i class="material-icons">&#xE84E;</i>People</h1>
+        <div class="">
+            <h1><i class="material-icons">&#xE84E;</i>Students</h1>
             <p class="btn">
                 <i class="material-icons">&#xE8B6;</i>
                 <input type="text" data-provide="typeahead" autocomplete="off" class="typeahead">
             </p>
             <div class="table-responsive scrollbox">
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -139,35 +172,27 @@
     <div id="personModal" class="modal fade" role="dialog">
         <form class="modal-content" id="personModalForm">
             <!-- Modal content-->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Stats</h4>
-            </div>
-            <div class="modal-body">
-                <div class="forms">
-                    <label>Name: </label>
-                    <input class="form-control" type="text" name="firstName" placeholder="First Name" />
-                    <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
-                </div>
-                <div class="forms">
-                    <label>Email: </label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" />
-                </div>
-                <div class="forms">
-                    <label>Phone: </label>
-                    <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
-                </div>
 
-                <div class="forms">
-                    <label>Programs Attended: </label> <span id="numProgramsAttended"></span>
-                </div>
-            </div>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Student Information</h4>
             </div>
             <div class="modal-body">
+
+                  <div class="forms">
+                      <label>Name: </label>
+                      <input class="form-control" type="text" name="firstName" placeholder="First Name" />
+                      <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+                  </div>
+                  <div class="forms">
+                      <label>Email: </label>
+                      <input class="form-control" type="email" name="email" placeholder="Email" />
+                  </div>
+                  <div class="forms">
+                      <label>Phone: </label>
+                      <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
+                  </div>
                 <div class="forms">
                     <label>Date of Birth: </label>
                     <select class="form-control" name="month">
@@ -667,6 +692,9 @@
                 <h4 class="modal-title">Programs</h4>
             </div>
             <div class="modal-body">
+                <div class="forms">
+                    <label>Programs Attended: </label> <span id="numProgramsAttended"></span>
+                </div>
                 <div class="table-responsive scrollbox">
                     <table class="table table-hover table-striped table-bordered">
                         <thead>
