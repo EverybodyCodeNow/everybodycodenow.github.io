@@ -34,13 +34,16 @@ h1, h2, h3, h4, h5, h6 {
     cursor: default;
 }
 .box {
-    min-width: 100%;
+    min-width: 80%;
     clear: both;
     min-height: 70%;
     padding-top: 40px;
     height: auto;
-    width: 100%;
-    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+.center_text{
+  text-align: center;
 }
 footer {
     text-align: center;
@@ -167,16 +170,6 @@ body> header> a:hover {
     min-width: 340px;
     text-align: center;
 }
-#home>.righty>section> div> form> div {
-    text-align: left;
-}
-#home>.righty>section {
-    min-width: 340px;
-    max-width: 340px;
-    margin: auto;
-    background-color: #BBDEFB;
-    padding: 10px;
-}
 
 /*#auth is the section that houses all the forms for signin/signup and program registration.*/
 
@@ -194,22 +187,14 @@ body> header> a:hover {
     background-color: #333;
     width: 100%;
 }
-.authBtn> span>a {
-    text-decoration: none;
-    color: #fff;
-}
-.authBtn> span>a:hover {
-    color: #333;
-}
-.authBtn>span:hover a {
-    color: #333;
-}
-.authBtn> span {
+.authBtn> a {
     box-shadow: #333 0px 0px 15px;
     background-color: #333;
     color: #fff;
+    text-decoration: none;
+    min-width: 100px;
 }
-.authBtn> span:hover {
+.authBtn> a:hover {
     background-color: #fff;
     color: #333;
 }
@@ -264,82 +249,4 @@ body> header> a:hover {
 .carousel-control.left {
     background: none !important;
     color: #000;
-}
-
-/*Contact Us*/
-
-#contactUs {
-    background-color: #BBDEFB;
-    padding: 40px;
-    border-radius: 5px;
-    min-height: 100%;
-}
-#contactUs>h1 {
-    margin-bottom: 40px;
-}
-
-/*About us*/
-
-#aboutus {
-    background-color: #E3F2FD;
-    padding: 40px;
-    border-radius: 5px;
-    margin-top: 10px;
-    text-align: center;
-    margin-bottom: 60px;
-}
-#aboutus>h1 {
-    text-align: left;
-}
-#aboutus> .profilecard {
-    text-align: center;
-    display: inline-block;
-    padding: 10px;
-}
-#aboutus> .profilecard>img {
-    width: 200px;
-    height: 200px;
-}
-
-/*Bottom Navigation*/
-
-#bottom_navigation {
-    display: none;
-    position: fixed;
-    text-align: center;
-    margin: auto;
-    top: 230px;
-    left: 0px;
-    width: auto;
-    height: auto;
-    padding: 10px;
-    background-color: #2196F3;
-    box-shadow: #000 5px 5px 20px;
-    z-index: 200;
-}
-#bottom_navigation:hover {
-    box-shadow: #000 5px 5px 30px;
-}
-.action {
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    margin: 0px;
-    color: white;
-}
-.action> label {
-    font-size: 12px;
-    cursor: pointer;
-    display: block;
-}
-.action_active, .action:hover, .action:focus {
-    text-decoration: none;
-    color: white;
-    padding-top: 6px;
-}
-.action:hover {
-    color: black;
-}
-.action_active> label {
-    font-size: 14px;
 }

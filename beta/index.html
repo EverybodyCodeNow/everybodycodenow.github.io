@@ -26,11 +26,12 @@
         <a href="">Everybody Code Now!</a>
     </header>
     <div class="authBtn">
-        <span class="btn " id="authBtn" onclick="" data-toggle="modal" data-target="#auth"><i class="material-icons">face</i><br>Sign In/Register</span>
-        <span class="btn" id="" onclick="" data-toggle="modal" data-target="#contactUs"><i class="material-icons">mail_outline</i><br>Contact Us</span>
+        <a class="btn" id="authBtn" href="members.html"><i class="material-icons">face</i><br>Sign In/Register</a>
+        <a class="btn" id="" onclick="" data-toggle="modal" data-target="#contactUs"><i class="material-icons">mail_outline</i><br>Contact Us</a>
+        <a class="btn" href="members.html"><i class="material-icons">fingerprint</i><br>Account</a>
     </div>
     <!-- Home Box -->
-    <section class="box" id="home">
+    <section class="box center_text" id="home">
         <div id="hometext" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -61,7 +62,7 @@
                     <h1>Send us a message <br> <a href="#" data-toggle="modal" data-target="#contactUs">Click Here</a></h1>
                 </div>
                 <div class="item"><i class="material-icons">create</i>
-                    <h1>Signing up for a program? <br> <a href="#" data-toggle="modal" data-target="#auth">Click Here!</a></h1>
+                    <h1>Signing up for a program? <br>   <a href="members.html">Click Here!</a></h1>
                 </div>
 
             </div>
@@ -97,39 +98,39 @@
 
     </section>
     <footer> <i class="material-icons">copyright</i> 2016 Everybody Code Now</footer>
-    <!--  Help Box-->
-        <div id="contactUs" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                          <!-- Modal content-->
-                          <div class="modal-content">
-                              <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Contact us</h4>
-                              </div>
-                              <form>
-                              <div class="modal-body">
-                                  <div class=" slideanim">
-                                      <div class="row">
-                                          <div class="col-sm-6 form-group">
-                                              <input class="form-control" id="contactus-name" name="name" placeholder="Name" type="text" required>
-                                          </div>
-                                          <div class="col-sm-6 form-group">
-                                              <input class="form-control" id="contactus-email" name="email" placeholder="Email" type="email" required>
-                                          </div>
-                                      </div>
-                                      <textarea class="form-control" id="contactus-comment" name="comments" placeholder="Comment" rows="5"></textarea>
-                                      <br>
-                                  </div>
-                                  <div class="" id="contactus_message"></div>
-                              </div>
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                          <input class="btn btn-default" type="submit" id="contactus-btn" value="Send">
-                              </div>
-                          </form>
-                          </div>
-          </div>
+    <!--  Contact Us Box-->
+    <div id="contactUs" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Contact us</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class=" slideanim">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="contactus-name" name="name" placeholder="Name" type="text" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="contactus-email" name="email" placeholder="Email" type="email" required>
+                                </div>
+                            </div>
+                            <textarea class="form-control" id="contactus-comment" name="comments" placeholder="Comment" rows="5"></textarea>
+                            <br>
+                        </div>
+                        <div class="" id="contactus_message"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input class="btn btn-default" type="submit" id="contactus-btn" value="Send">
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
 
 
 

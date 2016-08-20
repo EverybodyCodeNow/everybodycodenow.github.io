@@ -1,59 +1,18 @@
-
 //Authentication Listener
 firebase.auth().onAuthStateChanged(function(user) {
-    var timer;
     if (user) {
         $('#home').show();
         $('#signinbox').hide();
+        getPerson(user.uid, true);
     } else {
         $('#home').hide();
         $('#signinbox').show();
-        $('.authBtn>span#authBtn').html('Please Sign In.');
     }
 });
 
 
-//Sign In Form submit event
-$("#signin").submit(function(event) {
-    event.preventDefault();
-    var $email = $('#signin > div> input[name = "email"]');
-    var $password = $('#signin > div>input[name = "password"]');
-    var passVali = true;
-    //validation check
-    if ($email.val() == "") {
-        passVali = false;
-        $email.css("border", "solid 2px red");
-    }
-    if (!passVali) {
-        $("#signinMessage").html("Please fill in the red boxes.");
-    } else {
-        var passErrors = true;
-        firebase.auth().signInWithEmailAndPassword($email.val(), $password.val()).catch(function(error) {
-            var errorCode = error.code;
-            if (errorCode == "auth/invalid-email") {
-                $email.css("border", "solid 2px red");
-                $("#signinMessage").html("Please double check that you typed in your email correctly. Example: 'everybodycodenow@gmail.com'");
-                passErrors = false;
-            } else if (errorCode == "auth/user-not-found") {
-                $("#signinMessage").html("Your email was not found in our database, please <a style='cursor:pointer;' onClick='showSignup();'>sign up</a> first!");
-                passErrors = false;
-            } else if (errorCode == "auth/wrong-password") {
-                $password.css("border", "solid 2px red");
-                $("#signinMessage").html("Your email is correct but you've typed in the wrong password! :(");
-                passErrors = false;
-            } else {
-                $("#signinMessage").html("Ooops, we've encountered a problem. Please refresh the page and try again!");
-                passErrors = false;
-            }
-        });
-    }
-});
-//Sign out function
-function signout() {
-    firebase.auth().signOut();
-}
 people = [];
-var peopleRef = firebase.database().ref("students");
+var peopleRef = firebase.database().ref("users");
 peopleRef.on('child_added', function(data) {
     var person = data.val().firstName + " " + data.val().lastName + ", " + data.val().email + ", " + data.val().phone;
     people.push({
@@ -62,17 +21,17 @@ peopleRef.on('child_added', function(data) {
     });
     $('#people').append("<tr onClick=\"getPerson('" + data.key + "')\"><td>" + data.val().firstName + " " + data.val().lastName + "</td><td>" + data.val().email + "</td><td>" + data.val().phone + "</td></tr>");
 });
-var $input = $('.typeahead');
-$input.typeahead({
+var $student = $('.typeahead');
+$student.typeahead({
     source: people,
     autoSelect: true,
     showHintOnFocus: true
 });
-$input.change(function() {
-    var current = $input.typeahead("getActive");
+$student.change(function() {
+    var current = $student.typeahead("getActive");
     if (current) {
         // Some item from your model is active!
-        if (current.name == $input.val()) {
+        if (current.name == $student.val()) {
             getPerson(current.id);
         }
     } else {
@@ -80,34 +39,45 @@ $input.change(function() {
     }
 });
 
-function getPerson(id) {
-    var $numProgramsAttended = $("#personModalForm > div> div>  #numProgramsAttended");
-    var $email = $('#personModalForm > div> div> input[name="email"]');
-    var $phone = $("#personModalForm > div> div>  input[name = 'phone']");
-    var $firstName = $("#personModalForm > div> div>input[name = 'firstName']");
-    var $lastName = $("#personModalForm > div> div>  input[name = 'lastName']");
-    var $emergency_name = $("#personModalForm > div> div>input[name = 'emergency_name']");
-    var $emergency_email = $("#personModalForm > div> div> input[name = 'emergency_email']");
-    var $emergency_phone = $("#personModalForm > div> div>input[name = 'emergency_phone']");
-    var $dobDay = $("#personModalForm > div> div> select[name = 'day']");
-    var $dobMonth = $("#personModalForm > div> div>  select[name = 'month']");
-    var $dobYear = $("#personModalForm > div> div>  select[name = 'year']");
-    var $school = $("#personModalForm > div> div>  input[name = 'school']");
-    var $address = $("#personModalForm > div> div> input[name = 'address']");
-    var $city = $("#personModalForm > div> div>  input[name = 'city']");
-    var $state = $("#personModalForm > div> div> select[name = 'state']");
-    var $country = $("#personModalForm > div> div>  select[name = 'country']");
-    var $zipcode = $("#personModalForm > div> div>  input[name = 'zipcode']");
-    firebase.database().ref('/students/' + id).once('value').then(function(snapshot) {
+function getPerson(id, self) {
+    var fieldsSelector, programsAttended,numprograms;
+    if (self) {
+        fieldsSelector = "#user_profile>div>";
+        programsAttended = "#user_programs";
+        numprograms = "#user_numProgramsAttended";
+    } else {
+        fieldsSelector = "#personModalForm > div> div>";
+        programsAttended = "#programsInModal";
+        numprograms ="#numProgramsAttended";
+    }
+    var $numProgramsAttended = $(numprograms );
+    var $email = $(fieldsSelector + " input[name='email']");
+    var $phone = $(fieldsSelector + "  input[name = 'phone']");
+    var $firstName = $(fieldsSelector + "input[name = 'firstName']");
+    var $lastName = $(fieldsSelector + "  input[name = 'lastName']");
+    var $emergency_name = $(fieldsSelector + "input[name = 'emergency_name']");
+    var $emergency_email = $(fieldsSelector + " input[name = 'emergency_email']");
+    var $emergency_phone = $(fieldsSelector + "input[name = 'emergency_phone']");
+    var $dobDay = $(fieldsSelector + " select[name = 'day']");
+    var $dobMonth = $(fieldsSelector + "  select[name = 'month']");
+    var $dobYear = $(fieldsSelector + "  select[name = 'year']");
+    var $school = $(fieldsSelector + "  input[name = 'school']");
+    var $address = $(fieldsSelector + " input[name = 'address']");
+    var $city = $(fieldsSelector + "  input[name = 'city']");
+    var $state = $(fieldsSelector + " select[name = 'state']");
+    var $country = $(fieldsSelector + "  select[name = 'country']");
+    var $zipcode = $(fieldsSelector + "  input[name = 'zipcode']");
+    firebase.database().ref('/users/' + id).once('value').then(function(snapshot) {
         $numProgramsAttended.html((snapshot.child("programs").numChildren()));
-        $('#programsInModal').html("");
+
+        $(programsAttended).html("");
         if (snapshot.child("programs").hasChildren()) {
             snapshot.child("programs").forEach(function(childSnapshot) {
-                $('#programsInModal').append("<tr><td>"+(childSnapshot.val().date||"")+"</td><td>"+childSnapshot.val().name+"</td><td>"+childSnapshot.val().attended+"</td><td><textarea data-programid='"+childSnapshot.key+"'>"+(childSnapshot.val().comment||"")+"</textarea></td><td><textarea data-programid='"+childSnapshot.key+"'>"+(childSnapshot.val().feedback||"")+"</textarea></td></tr>");
+                $(programsAttended).append("<tr><td>" + (childSnapshot.val().date || "") + "</td><td>" + childSnapshot.val().name + "</td><td>" + childSnapshot.val().attended + "</td><td><textarea data-programid='" + childSnapshot.key + "'>" + (childSnapshot.val().comment || "") + "</textarea></td><td><textarea data-programid='" + childSnapshot.key + "'>" + (childSnapshot.val().feedback || "") + "</textarea></td></tr>");
             });
 
         } else {
-            $('#programsInModal').append("<tr><td colspan='5'>You haven't attended any programs yet!</td></tr>");
+            $(programsAttended).append("<tr><td colspan='5'>You haven't attended any programs yet!</td></tr>");
 
         }
         $firstName.val(snapshot.val().firstName);
@@ -131,17 +101,9 @@ function getPerson(id) {
 
         // ...
     });
-    $('#personModal').modal({
-        show: true
-    });
-}
-
-function getUnixTime() {
-    return "" + Date.now();
-}
-
-function getUnixDate(timestamp) {
-    var dt = eval(timestamp);
-    var myDate = new Date(dt);
-    return (myDate.toLocaleString());
+    if (!self) {
+        $('#personModal').modal({
+            show: true
+        });
+    }
 }

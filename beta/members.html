@@ -25,68 +25,194 @@
         <a href="">Everybody Code Now!</a>
     </header>
     <div class="authBtn">
-        <span class="btn " id="authBtn" onclick="" data-toggle="modal" data-target="#auth"><i class="material-icons">face</i><br>Sign In/Register</span>
-        <span class="btn" id="" onclick="" data-toggle="modal" data-target="#contactUs"><i class="material-icons">mail_outline</i><br>Contact Us</span>
+        <a class="btn " id="authBtn" onclick=""><i class="material-icons">face</i><br>Sign In/Register</a>
+        <a class="btn" id="" onclick="" data-toggle="modal" data-target="#contactUs"><i class="material-icons">mail_outline</i><br>Contact Us</a>
+        <a class="btn" href="index.html"><i class="material-icons">home</i><br>Home</a>
     </div>
-
+    <br>
+    <br>
     <!-- Home Box -->
     <section class="box" id="home">
+        <h1 style="text-align:center">"I was taught that the way of progress was neither swift nor easy." - Marie Curie.</h1>
 
         <div class="container">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#events">Events</a></li>
-                <li><a data-toggle="tab" href="#people">People</a></li>
+                <li class="active"><a data-toggle="tab" href="#events_tab"><i class="material-icons">event</i> Events</a></li>
+                <li><a data-toggle="tab" href="#progress"><i class="material-icons">trending_up</i> Your Progress</a></li>
+                <li><a data-toggle="tab" href="#profile"><i class="material-icons">contacts</i> Your Profile</a></li>
+                <li><a data-toggle="tab" href="#students"><i class="material-icons">&#xE84E;</i> Students</a></li>
+                <li><a data-toggle="tab" href="#contactus_messages_tab"><i class="material-icons">mail</i> Contact Us Messages</a></li>
             </ul>
         </div>
         <div class="tab-content">
-          <div id="events" class="tab-pane fade in active">
+            <div id="events_tab" class="tab-pane fade in active">
 
-              <h1><i class="material-icons">&#xE85D;</i>Events</h1>
-              <p>
-                  <span class="btn btn-info btn-lg addEventBtn" data-toggle="modal" data-target="#addEvent">+ Add Event</span>
-              </p>
-              <div class="table-responsive scrollbox">
-                  <table class="table table-hover table-striped table-bordered">
-                      <thead>
-                          <tr>
-                              <th>Name</th>
-                              <th>Date</th>
-                              <th>Description</th>
-                              <th>Location</th>
-                          </tr>
-                      </thead>
-                      <tbody id="events">
-                      </tbody>
-                  </table>
-              </div>
+                <h1><i class="material-icons">event</i> Up Coming Events:</h1>
+                <div class="" id="events">
+                    <div class="event_card">
+                        <div class="btn btn-primary btn-lg" id="addEventBtn" data-toggle="modal" data-target="#addEvent">+ Add Event</div>
+                    </div>
+                    <div class="event_card">
+                      <h1>Program Title</h1>
+                      <p>
+                        Short description
+                      </p>
+                        <div class="btn btn-primary btn-lg">Join Event</div>
+                            <div class="btn btn-info btn-lg">More Information</div>
+                    </div>
 
-          </div>
-          <div id="people" class="tab-pane fade">
-              <h1><i class="material-icons">&#xE84E;</i>Students</h1>
-              <p class="btn">
-                  <i class="material-icons">&#xE8B6;</i>
-                  <input type="text" data-provide="typeahead" autocomplete="off" class="typeahead">
-              </p>
-              <div class="table-responsive scrollbox">
-                  <table class="table table-hover table-striped table-bordered">
-                      <thead>
-                          <tr>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Phone</th>
-                          </tr>
-                      </thead>
-                      <tbody id="people">
-                      </tbody>
-                  </table>
-              </div>
+                </div>
 
-          </div>
+
+            </div>
+            <div id="progress" class="tab-pane fade">
+                <h1><i class="material-icons">face</i> Programs you've attended:</h1>
+
+                <div class="forms">
+                    <label>Programs Attended: </label> <span id="user_numProgramsAttended"></span>
+                </div>
+                <div class="table-responsive scrollbox">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Attended?</th>
+                                <th>Instructor Comment</th>
+                                <th>Student Feedback</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user_programs">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="" id="user_progress">
+
+                </div>
+            </div>
+            <div id="profile" class="tab-pane fade">
+                <div class="" id="user_profile">
+                    <div class="forms">
+                        <label>Name: </label>
+                        <input class="form-control" type="text" name="firstName" placeholder="First Name" />
+                        <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+                    </div>
+                    <div class="forms">
+                        <label>Email: </label>
+                        <input class="form-control" type="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="forms">
+                        <label>Phone: </label>
+                        <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
+                    </div>
+                    <div class="forms">
+                        <label>Date of Birth: </label>
+                        <select class="form-control" name="month">
+                        </select>
+                        <select class="form-control" name="day">
+                        </select>
+                        <select class="form-control" name="year">
+                        </select>
+                    </div>
+                    <div class="forms">
+                        <label>Your School or Affliation: </label>
+                        <input class="form-control" type="text" name="school" placeholder="School" />
+                    </div>
+                    <div class="forms">
+                        <label>Your Address:</label>
+                        <input class="form-control" type="text" name="address" placeholder="Address" />
+                        <input class="form-control" type="text" name="city" placeholder="City" />
+                        <select class="form-control" name="state">
+                        </select>
+                        <input class="form-control" type="number" name="zipcode" placeholder="Zipcode" />
+                        <select class="form-control" name="country">
+                        </select>
+                    </div>
+
+                    <div class="forms">
+                        <label>Emergency Contacts</label>
+                        <input class="form-control" type="text" name="emergency_name" placeholder="Emergency Contact Name" />
+                        <input class="form-control" type="email" name="emergency_email" placeholder="Emergency Contact Email" />
+                        <input class="form-control" type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" />
+                    </div>
+
+                </div>
+            </div>
+            <div id="students" class="tab-pane fade">
+                <p class="btn">
+                    <i class="material-icons">&#xE8B6;</i>
+                    <input type="text" data-provide="typeahead" autocomplete="off" class="typeahead">
+                </p>
+                <div class="table-responsive scrollbox">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody id="people">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="contactus_messages_tab" class="tab-pane fade">
+                <div class="table-responsive scrollbox">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactus_messages">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
+        <footer> <i class="material-icons">copyright</i> 2016 Everybody Code Now</footer>
 
 
     </section>
 
+    <!--  Contact Us Box-->
+    <div id="contactUs" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Contact us</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class=" slideanim">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="contactus-name" name="name" placeholder="Name" type="text" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="contactus-email" name="email" placeholder="Email" type="email" required>
+                                </div>
+                            </div>
+                            <textarea class="form-control" id="contactus-comment" name="comments" placeholder="Comment" rows="5"></textarea>
+                            <br>
+                        </div>
+                        <div class="" id="contactus_message"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input class="btn btn-default" type="submit" id="contactus-btn" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Modal -->
     <div id="addEvent" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -108,6 +234,7 @@
         </div>
     </div>
     <!-- Modal -->
+
     <div id="personModal" class="modal fade" role="dialog">
         <form class="modal-content" id="personModalForm">
             <!-- Modal content-->
