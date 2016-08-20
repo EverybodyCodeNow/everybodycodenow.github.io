@@ -189,11 +189,18 @@ body> header> a:hover {
     text-align: center;
 }
 .authBtn {
-  text-align: right;
-    margin-top: 15px;
+  text-align: center;
+  background-color: #333;
+  width: 100%;
+  color: #fff;
 }
 .authBtn> span {
     box-shadow: #333 0px 0px 15px;
+    background-color: #333;
+}
+.authBtn> span:hover{
+    background-color: #fff;
+    color: #333;
 }
 
 /*Programs Container*/

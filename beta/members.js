@@ -1,46 +1,11 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCZbco1VR3tONggfZmmVc9O8cyswZL1T_U",
-    authDomain: "everybodycodenow-d4f23.firebaseapp.com",
-    databaseURL: "https://everybodycodenow-d4f23.firebaseio.com",
-    storageBucket: "",
-};
-firebase.initializeApp(config);
 
 //Authentication Listener
 firebase.auth().onAuthStateChanged(function(user) {
-    function setLastOnline(user) {
-        if (user) {
-            var lastOnlines = firebase.database().ref("users/" + user.uid).update({
-                "lastOnline": getUnixTime()
-            });
-        }
-    }
     var timer;
     if (user) {
         $('#home').show();
         $('#signinbox').hide();
-        $('.authBtn>span#authBtn').html('Sign Out');
-        $('.authBtn>span#authBtn').attr("onclick", "signout();");
-        uid = user.uid;
-
-        timer = setInterval(function() {
-            setLastOnline(user);
-        }, 60000);
-        // firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
-        //     var isAdmin = snapshot.val().isAdmin;
-        //     if (isAdmin == true) {
-        //         if ($('#adminBtn').length == 0) {
-        //             $('.authBtn').append('<span class="btn btn-primary" id="adminBtn"><a href="members.html" target="_blank" style="color:#FFF">Members Page</a></span>')
-        //         } else {
-        //             $('#adminBtn').show();
-        //         }
-        //     }
-        // });
-
-
     } else {
-        clearInterval(timer);
         $('#home').hide();
         $('#signinbox').show();
         $('.authBtn>span#authBtn').html('Please Sign In.');

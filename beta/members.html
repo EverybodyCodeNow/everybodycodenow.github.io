@@ -83,15 +83,13 @@
 <body>
     <!-- Top Navigation and Logo -->
     <header>
-        <a href="">Everybody Code Now!</a><span>- Members Page</span>
-        <div class="social_buttons">
-            <a href="https://www.facebook.com/everybodycodenow/" title="ECN's Facebook" target="_blank" class="social_facebook"></a>
-            <a href="https://twitter.com/everybody_code" target="_blank" title="ECN's Twitter" class="social_twitter"></a>
-            <a href="https://github.com/EverybodyCodeNow/programs" target="_blank" title="ECN's Github" class="social_github"></a>
-            <a href="https://trello.com/b/5tgkTDKb/our-tasks-notes" target="_blank" title="Trello" class="social_trello"></a>
-            <a href="https://everybodycodenow.slack.com/" target="_blank" title="Slack" class="social_slack"></a>
-        </div>
+        <img src="logo.png" alt="" />
+        <a href="">Everybody Code Now!</a>
     </header>
+    <div class="authBtn">
+        <span class="btn " id="authBtn" onclick="" data-toggle="modal" data-target="#auth"><i class="material-icons">face</i><br>Sign In/Register</span>
+        <span class="btn" id="" onclick="" data-toggle="modal" data-target="#contactus"><i class="material-icons">mail_outline</i><br>Contact Us</span>
+    </div>
 
     <!-- Home Box -->
     <section class="box" id="home">
@@ -732,6 +730,7 @@
         </form>
     </div>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="ecn.js"></script>
     <script src="members.js"></script>
 </body>
 
