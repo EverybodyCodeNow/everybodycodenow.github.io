@@ -1,0 +1,42 @@
+    #home {
+        display: none;
+    }
+    h1> .material-icons {
+        display: block;
+    }
+    .scrollbox {
+        max-height: 600px;
+        width: 100%;
+        overflow: auto;
+    }
+    .modal {
+        width: 60%;
+        margin: auto;
+    }
+    .modal-header {
+        background-color: #2196F3;
+        color: white;
+        font-weight: bold;
+    }
+    .modal-body {
+        overflow: auto;
+        zoom: 1;
+        text-align: center;
+        background-color: #eeeeee;
+    }
+    #personModalForm> div> div>input, #personModalForm> div> div>select, #programsInModal> tr> td> textarea {
+        border: none;
+        background: none;
+        width: auto;
+        max-width: 100%;
+    }
+    #personModalForm> div> div>input:focus {
+        border: solid 1px blue;
+        background-color: white;
+    }
+    #personModalForm> div>.forms {
+        float: left;
+    }
+    table> thead> tr> th {
+        text-align: center;
+    }

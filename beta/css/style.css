@@ -72,12 +72,12 @@ body>header {
     text-align: center;
 }
 body>header> img {
-  margin: 0px;
+    margin: 0px;
 }
 body> header> a {
     vertical-align: text-top;
     padding: 0px;
-      margin-top: -110px;
+    margin-top: -110px;
     display: block;
     font-size: 70px;
     font-family: 'MarkoOne-Regular';
@@ -96,7 +96,7 @@ body> header> a:hover {
     height: 70px;
 }
 .social_buttons>a {
-    width:44px;
+    width: 44px;
     height: 44px;
     background-size: contain;
     display: inline-block;
@@ -135,26 +135,27 @@ body> header> a:hover {
 }
 
 /*Home Container*/
-#hometext{
-  min-height: 250px;
-  height: 280px;
+
+#hometext {
+    min-height: 250px;
+    height: 280px;
 }
-#hometext>div>div >h1 {
-  font-size: 50px;
-  padding: 0px;
-  margin: 0px;
+#hometext>div>div>h1 {
+    font-size: 50px;
+    padding: 0px;
+    margin: 0px;
 }
-#hometext>div>div >i{
-  font-size: 90px;
+#hometext>div>div>i {
+    font-size: 90px;
 }
-.carousel-indicators{
-  bottom:10px;
+.carousel-indicators {
+    bottom: 10px;
 }
-.carousel-indicators>li{
-  border-color: #000;
+.carousel-indicators>li {
+    border-color: #000;
 }
-.carousel-indicators>li.active{
-  background-color: #000;
+.carousel-indicators>li.active {
+    background-color: #000;
 }
 .lefty {
     width: 50%;
@@ -189,16 +190,26 @@ body> header> a:hover {
     text-align: center;
 }
 .authBtn {
-  text-align: center;
-  background-color: #333;
-  width: 100%;
-  color: #fff;
+    text-align: center;
+    background-color: #333;
+    width: 100%;
+}
+.authBtn> span>a {
+    text-decoration: none;
+    color: #fff;
+}
+.authBtn> span>a:hover {
+    color: #333;
+}
+.authBtn>span:hover a {
+    color: #333;
 }
 .authBtn> span {
     box-shadow: #333 0px 0px 15px;
     background-color: #333;
+    color: #fff;
 }
-.authBtn> span:hover{
+.authBtn> span:hover {
     background-color: #fff;
     color: #333;
 }
@@ -237,7 +248,7 @@ body> header> a:hover {
     background: #E8EAF6;
 }
 #gallery_albums {
-  width: 100%;
+    width: 100%;
 }
 .carousel-inner>.item>img {
     margin: auto;
@@ -293,12 +304,12 @@ body> header> a:hover {
 /*Bottom Navigation*/
 
 #bottom_navigation {
-  display: none;
+    display: none;
     position: fixed;
     text-align: center;
     margin: auto;
-    top:230px;
-    left:0px;
+    top: 230px;
+    left: 0px;
     width: auto;
     height: auto;
     padding: 10px;
@@ -306,8 +317,8 @@ body> header> a:hover {
     box-shadow: #000 5px 5px 20px;
     z-index: 200;
 }
-#bottom_navigation:hover{
-  box-shadow: #000 5px 5px 30px;
+#bottom_navigation:hover {
+    box-shadow: #000 5px 5px 30px;
 }
 .action {
     cursor: pointer;
