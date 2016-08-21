@@ -12,7 +12,6 @@
         overflow: auto;
     }
     .modal {
-        width: 60%;
         margin: auto;
     }
     .modal-header {
@@ -44,7 +43,7 @@
     .tab-pane {
         width: 80%;
         margin: auto;
-        padding-top: 30px;
+        padding-top: 15px;
     }
     .event_card {
         display: inline-block;
@@ -64,6 +63,9 @@
       #addEventBtn{
         margin-top: 55%;
       }
-      .container{
-        background-color: #ececec;
+
+      .tab-content{
+        width: 90%;
+        margin: auto;
+        min-height: 600px;
       }

@@ -33,7 +33,7 @@
     <br>
     <!-- Home Box -->
     <section class="box" id="home">
-        <h1 style="text-align:center">"I was taught that the way of progress was neither swift nor easy." - Marie Curie.</h1>
+        <h1 style="color:#999" class="center_text">"I was taught that the way of progress was neither swift nor easy." - Marie Curie.</h1>
 
         <div class="container">
             <ul class="nav nav-tabs">
@@ -53,12 +53,12 @@
                         <div class="btn btn-primary btn-lg" id="addEventBtn" data-toggle="modal" data-target="#addEvent">+ Add Event</div>
                     </div>
                     <div class="event_card">
-                      <h1>Program Title</h1>
-                      <p>
-                        Short description
-                      </p>
+                        <h1>Program Title</h1>
+                        <p>
+                            Short description
+                        </p>
                         <div class="btn btn-primary btn-lg">Join Event</div>
-                            <div class="btn btn-info btn-lg">More Information</div>
+                        <div class="btn btn-info btn-lg">More Information</div>
                     </div>
 
                 </div>
@@ -236,94 +236,97 @@
     <!-- Modal -->
 
     <div id="personModal" class="modal fade" role="dialog">
-        <form class="modal-content" id="personModalForm">
-            <!-- Modal content-->
+        <div class="modal-dialog">
+
+            <form class="modal-content" id="personModalForm">
+                <!-- Modal content-->
 
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Student Information</h4>
-            </div>
-            <div class="modal-body">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Student Information</h4>
+                </div>
+                <div class="modal-body">
 
-                <div class="forms">
-                    <label>Name: </label>
-                    <input class="form-control" type="text" name="firstName" placeholder="First Name" />
-                    <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+                    <div class="forms">
+                        <label>Name: </label>
+                        <input class="form-control" type="text" name="firstName" placeholder="First Name" />
+                        <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+                    </div>
+                    <div class="forms">
+                        <label>Email: </label>
+                        <input class="form-control" type="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="forms">
+                        <label>Phone: </label>
+                        <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
+                    </div>
+                    <div class="forms">
+                        <label>Date of Birth: </label>
+                        <select class="form-control" name="month">
+                        </select>
+                        <select class="form-control" name="day">
+                        </select>
+                        <select class="form-control" name="year">
+                        </select>
+                    </div>
+                    <div class="forms">
+                        <label>Your School or Affliation: </label>
+                        <input class="form-control" type="text" name="school" placeholder="School" />
+                    </div>
+                    <div class="forms">
+                        <label>Your Address:</label>
+                        <input class="form-control" type="text" name="address" placeholder="Address" />
+                        <input class="form-control" type="text" name="city" placeholder="City" />
+                        <select class="form-control" name="state">
+                        </select>
+                        <input class="form-control" type="number" name="zipcode" placeholder="Zipcode" />
+                        <select class="form-control" name="country">
+                        </select>
+                    </div>
                 </div>
-                <div class="forms">
-                    <label>Email: </label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" />
+                <!-- Modal content-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Emergency Contacts</h4>
                 </div>
-                <div class="forms">
-                    <label>Phone: </label>
-                    <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
+                <div class="modal-body">
+                    <div class="forms">
+                        <input class="form-control" type="text" name="emergency_name" placeholder="Emergency Contact Name" />
+                        <input class="form-control" type="email" name="emergency_email" placeholder="Emergency Contact Email" />
+                        <input class="form-control" type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" />
+                    </div>
                 </div>
-                <div class="forms">
-                    <label>Date of Birth: </label>
-                    <select class="form-control" name="month">
-                    </select>
-                    <select class="form-control" name="day">
-                    </select>
-                    <select class="form-control" name="year">
-                    </select>
+                <!-- Modal content-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Programs</h4>
                 </div>
-                <div class="forms">
-                    <label>Your School or Affliation: </label>
-                    <input class="form-control" type="text" name="school" placeholder="School" />
+                <div class="modal-body">
+                    <div class="forms">
+                        <label>Programs Attended: </label> <span id="numProgramsAttended"></span>
+                    </div>
+                    <div class="table-responsive scrollbox">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Attended?</th>
+                                    <th>Instructor Comment</th>
+                                    <th>Student Feedback</th>
+                                </tr>
+                            </thead>
+                            <tbody id="programsInModal">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="forms">
-                    <label>Your Address:</label>
-                    <input class="form-control" type="text" name="address" placeholder="Address" />
-                    <input class="form-control" type="text" name="city" placeholder="City" />
-                    <select class="form-control" name="state">
-                    </select>
-                    <input class="form-control" type="number" name="zipcode" placeholder="Zipcode" />
-                    <select class="form-control" name="country">
-                    </select>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
-            </div>
-            <!-- Modal content-->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Emergency Contacts</h4>
-            </div>
-            <div class="modal-body">
-                <div class="forms">
-                    <input class="form-control" type="text" name="emergency_name" placeholder="Emergency Contact Name" />
-                    <input class="form-control" type="email" name="emergency_email" placeholder="Emergency Contact Email" />
-                    <input class="form-control" type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" />
-                </div>
-            </div>
-            <!-- Modal content-->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Programs</h4>
-            </div>
-            <div class="modal-body">
-                <div class="forms">
-                    <label>Programs Attended: </label> <span id="numProgramsAttended"></span>
-                </div>
-                <div class="table-responsive scrollbox">
-                    <table class="table table-hover table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Name</th>
-                                <th>Attended?</th>
-                                <th>Instructor Comment</th>
-                                <th>Student Feedback</th>
-                            </tr>
-                        </thead>
-                        <tbody id="programsInModal">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <div class="box" id="signinbox">
