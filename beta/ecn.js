@@ -59,17 +59,17 @@ $("#signin").submit(function(event) {
             var errorCode = error.code;
             if (errorCode == "auth/invalid-email") {
                 $email.css("border", "solid 2px red");
-                $("#signinMessage").html("Please double check that you typed in your email correctly. Example: 'everybodycodenow@gmail.com'");
+                $("#signinMessage").html("<p style='color:red;'>Please double check that you typed in your email correctly. Example: 'everybodycodenow@gmail.com'</p>");
                 passErrors = false;
             } else if (errorCode == "auth/user-not-found") {
-                $("#signinMessage").html("Your email was not found in our database, please <a style='cursor:pointer;' onClick='showSignup();'>sign up</a> first!");
+                $("#signinMessage").html("<p style='color:red;'>Your email was not found in our database, please <a style='cursor:pointer;' href='#signup'>sign up</a> first!</p>");
                 passErrors = false;
             } else if (errorCode == "auth/wrong-password") {
                 $password.css("border", "solid 2px red");
-                $("#signinMessage").html("Your email is correct but you've typed in the wrong password! :(");
+                $("#signinMessage").html("<p style='color:red;'>Your email is correct but you've typed in the wrong password!</p>");
                 passErrors = false;
             } else {
-                $("#signinMessage").html("Ooops, we've encountered a problem. Please refresh the page and try again!");
+                $("#signinMessage").html("<p style='color:red;'>Ooops, we've encountered a problem. Please refresh the page and try again!</p>");
                 passErrors = false;
             }
         });
@@ -106,8 +106,7 @@ $("#signup").submit(function(event) {
     }
 
     if (!passVali) {
-        $("#signupMessage").html("Please fill in the red boxes.");
-        alert("Please fill in the red boxes.");
+        $("#signupMessage").html("<p style='color:red;'>Please fill in the red boxes.</p>");
     } else {
         var passErrors = true;
         firebase.auth().createUserWithEmailAndPassword($email.val(), $password.val()).catch(function(error) {
@@ -116,27 +115,23 @@ $("#signup").submit(function(event) {
             var errorMessage = error.message;
             if (errorCode == "auth/invalid-email") {
                 $email.css("border", "solid 2px red");
-                $("#signupMessage").html("Please double check your email");
+                $("#signupMessage").html("<p style='color:red;'>Please double check your email</p>");
                 passErrors = false;
             } else if (errorCode == "auth/email-already-in-use") {
-                returningStudent();
+                $("#signupMessage").html("<p style='color:red;'>This email is already in use. Please sign in, or use another email.</p>");
                 passErrors = false;
             } else if (errorCode == "auth/weak-password") {
                 $password.css("border", "solid 2px red");
-                $("#signupMessage").html("Please use a stronger password. Try using using at least 6 characters, numbers and letters.");
+                $("#signupMessage").html("<p style='color:red;'>Please use a stronger password. Try using using at least 6 characters, numbers and letters.</p>");
                 passErrors = false;
             } else {
-                $("#signupMessage").html("Sorry we can't sign you up at this time. Try again later!");
+                $("#signupMessage").html("<p style='color:red;'>Sorry we can't sign you up at this time. Try again later!</p>");
                 passErrors = false;
             }
         }).then(function() {
             if (passErrors) {
                 var user = firebase.auth().currentUser;
                 var id = user.uid;
-                var dbRef = firebase.database().ref('users/' + id);
-                dbRef.update({
-                    "email": $email.val()
-                });
                 var studentData = {
                     "email": $email.val(),
                     "uid": id,
@@ -144,8 +139,7 @@ $("#signup").submit(function(event) {
                     "lastName": $lastName.val(),
                     "phone": $phone.val()
                 };
-                firebase.database().ref("students").push(studentData);
-                programSignup($programName.val());
+                firebase.database().ref("users/" + id).update(studentData);
             }
         });
     }
@@ -200,7 +194,11 @@ function getUnixTime() {
 function getUnixDate(timestamp) {
     var dt = eval(timestamp);
     var myDate = new Date(dt);
-    var options = {year: 'numeric', month: 'long', day: 'numeric' };
+    var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
     return (myDate.toLocaleString('en-US', options));
 }
 

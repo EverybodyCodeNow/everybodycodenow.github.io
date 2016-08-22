@@ -170,7 +170,6 @@
             </div>
         </div>
 
-        <footer> <i class="material-icons">copyright</i> 2016 Everybody Code Now</footer>
 
 
     </section>
@@ -417,8 +416,15 @@
     </div>
 
     <div class="box" id="signinbox">
-        <h1>Sign in</h1>
-        <form id="signin">
+        <h1 class="authbox" style="text-align:center;"><i class="material-icons" style="font-size:50px">card_membership</i>
+          <ul style="list-style: none;">
+    <li>Join ECN Programs</li>
+    <li>Track How Much You're Learning</li>
+    <li>Get Feedback from Your Instructors</li>
+</ul>
+      </h1>
+        <form id="signin" class="authbox" style="background-color:#333333;;color:white">
+            <h1><i class="material-icons" style="font-size:50px">fingerprint</i><br>Sign in</h1>
             <div class="forms">
                 <label>Email and Password*:</label>
                 <input class="form-control" type="email" name="email" placeholder="Email" />
@@ -429,10 +435,38 @@
                 <input class="form-control" type="submit" value="submit" />
             </div>
         </form>
+        <!--  Recaptcha-->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <form id="signup" class="authbox" style="">
+            <h1><i class="material-icons" style="font-size:50px">account_circle</i><br>Sign up</h1>
+            <div class="forms">
+                <label>Your Name*: </label>
+                <input class="form-control" type="text" name="firstName" placeholder="First Name" />
+                <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
+            </div>
+            <div class="forms">
+                <label>Email and Password*: </label>
+                <input class="form-control" type="email" name="email" placeholder="Email" />
+                <input class="form-control" type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="forms">
+                <label>Phone: </label>
+                <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
+            </div>
+            <label>Prove that you're not a robot*: </label>
+            <div class="g-recaptcha" data-sitekey="6Lc22BsTAAAAADv2aym_3rYctiGqS5U0PynXbrxU"></div>
+            <span id="signupMessage"></span>
+            <div class="forms">
+                <input class="form-control" type="submit" name="submit" value="Submit" />
+            </div>
+        </form>
     </div>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
     <script src="ecn.js"></script>
     <script src="members.js"></script>
+
+    <footer> <i class="material-icons">copyright</i> 2016 Everybody Code Now</footer>
+
 </body>
 
 </html>

@@ -1,80 +1,94 @@
-    #home {
-        display: none;
-    }
-    .tab_heading {
-        color: #333;
-        display: block;
-        text-align: center;
-    }
-    .scrollbox {
-        max-height: 600px;
-        width: 100%;
-        overflow: auto;
-    }
-    .modal {
-        margin: auto;
-    }
-    .modal-header {
-        background-color: #2196F3;
-        color: white;
-        font-weight: bold;
-    }
-    .modal-body {
-        overflow: auto;
-        zoom: 1;
-        text-align: center;
-    }
-    #personModalForm> div> div>input, #personModalForm> div> div>select, #programsInModal> tr> td> textarea {
-        border: none;
-        background: none;
-        width: auto;
-        max-width: 100%;
-    }
-    #personModalForm> div> div>input:focus {
-        border: solid 1px blue;
-        background-color: white;
-    }
-    #personModalForm> div>.forms {
-        float: left;
-    }
-    table> thead> tr> th {
-        text-align: center;
-    }
-    .tab-pane {
-        width: 80%;
-        margin: auto;
-        padding-top: 15px;
-    }
-    .event_card {
-        display: inline-block;
-        width: 250px;
-        min-height: 350px;
-        background-color: #fff;
-        text-align: center;
-        vertical-align: middle;
-        border: 1px solid silver;
-        padding: 20px;
-        color: #333;
-    }
-      .event_card>h1{font-weight: bold}
-      .event_card>div{
-        margin: auto;
-      }
-      #addEventBtn{
-        margin-top: 60%;
-      }
-
-      .tab-content{
-        width: 90%;
-        margin: auto;
-        min-height: 600px;
-      }
-
-      .programsAttended{
-        text-align: center;
-      }
-
-      .contactmessages{
-        text-align: center;
-        cursor: pointer;
-      }
+#home {
+    display: none;
+}
+.tab_heading {
+    color: #333;
+    display: block;
+    text-align: center;
+}
+.scrollbox {
+    max-height: 600px;
+    width: 100%;
+    overflow: auto;
+}
+.modal {
+    margin: auto;
+}
+.modal-header {
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+}
+.modal-body {
+    overflow: auto;
+    zoom: 1;
+    text-align: center;
+}
+#personModalForm> div> div>input, #personModalForm> div> div>select, #programsInModal> tr> td> textarea {
+    border: none;
+    background: none;
+    width: auto;
+    max-width: 100%;
+}
+#personModalForm> div> div>input:focus {
+    border: solid 1px blue;
+    background-color: white;
+}
+#personModalForm> div>.forms {
+    float: left;
+}
+table> thead> tr> th {
+    text-align: center;
+}
+.tab-pane {
+    width: 80%;
+    margin: auto;
+    padding-top: 15px;
+}
+.event_card {
+    display: inline-block;
+    width: 250px;
+    min-height: 350px;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid silver;
+    padding: 20px;
+    color: #333;
+}
+.event_card>h1 {
+    font-weight: bold
+}
+.event_card>div {
+    margin: auto;
+}
+#addEventBtn {
+    margin-top: 60%;
+}
+.tab-content {
+    width: 90%;
+    margin: auto;
+    min-height: 600px;
+}
+.programsAttended {
+    text-align: center;
+}
+.contactmessages {
+    text-align: center;
+    cursor: pointer;
+}
+.authbox {
+    margin: auto;
+    width: 60%;
+    overflow: auto;
+    zoom: 1;
+    text-align: center;
+    /*background-color: #333333;*/
+    padding: 20px;
+    /*color: white;*/
+    margin-top: 5px;
+}
+.g-recaptcha>div {
+    text-align: center;
+    margin: auto;
+}

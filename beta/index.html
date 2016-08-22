@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!--  Recaptcha-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Custom Theme files -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/media.css" rel="stylesheet" type="text/css" />
@@ -131,113 +129,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-    <!-- modal start here -->
-    <section id="auth" class="modal fade" role="dialog">
-        <div>
-            <h1>Sign Up Now!</h1>
-            <h5>It's Free. Must be 13 or older. Get your parent's permission before you sign up.</h5>
-
-            <form id="signup">
-                <div class="forms">
-                    <label>Your Name*: </label>
-                    <input class="form-control" type="text" name="firstName" placeholder="First Name" />
-                    <input class="form-control" type="text" name="lastName" placeholder="Last Name" />
-                </div>
-                <div class="forms">
-                    <label>Email and Password*: </label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" />
-                    <input class="form-control" type="password" name="password" placeholder="Password" />
-                </div>
-                <div class="forms">
-                    <label>Phone: </label>
-                    <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)" />
-                </div>
-                <label>Prove that you're not a robot*: </label>
-                <div class="g-recaptcha" data-sitekey="6Lc22BsTAAAAADv2aym_3rYctiGqS5U0PynXbrxU"></div>
-                <span id="signupMessage"></span>
-                <div class="forms">
-                    <input class="form-control" type="submit" name="submit" value="Submit" />
-                </div>
-            </form>
-        </div>
-        <div>
-            <h1>Sign in</h1>
-            <form id="signin">
-                <div class="forms">
-                    <label>Email and Password*:</label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" />
-                    <input class="form-control" type="password" name="password" placeholder="Password" />
-                </div>
-                <span id="signinMessage"></span>
-                <div class="forms">
-                    <input class="form-control" type="submit" value="submit" />
-                </div>
-            </form>
-        </div>
-        <div>
-            <h1>Congratulations!</h1>
-            <h2>You are ready to sign up for an upcoming event!</h2>
-            <h5>Make sure you can attend the workshop at the time and location you choose! </h5>
-            <form id="programSignup">
-                <label>Choose the program you're attending:</label>
-                <select class="form-control" name="programName"></select>
-                <label>Attending:</label>
-                <div id="attendingStudents"></div>
-                <div class="forms">
-                    <label>Prefered Contact Email:</label>
-                    <input class="form-control" type="email" name="email" placeholder="Prefered Email" />
-                </div>
-                <div class="forms">
-                    <label>Is there anything you'd like to tell us?:</label>
-                    <textarea class="form-control" name="specialNotes">Special notes, dietary restrictions, etc.. </textarea>
-                </div>
-
-                <div class="forms">
-                    <label>Date of Birth*: </label>
-                    <select class="form-control" name="month">
-                    </select>
-                    <select class="form-control" name="day">
-                    </select>
-                    <select class="form-control" name="year">
-                    </select>
-                </div>
-                <div class="forms">
-                    <label>Your School or Affliation*: </label>
-                    <input class="form-control" type="text" name="school" placeholder="School" />
-                </div>
-                <div class="forms">
-                    <label>Your Address*:</label>
-                    <input class="form-control" type="text" name="address" placeholder="Address" />
-                    <input class="form-control" type="text" name="city" placeholder="City" />
-                    <select class="form-control" name="state">
-                    </select>
-                    <input class="form-control" type="number" name="zipcode" placeholder="Zipcode" />
-                    <select class="form-control" name="country">
-                    </select>
-                </div>
-
-                <label>Emergency Contact</label>
-                <div class="forms">
-                    <input class="form-control" type="text" name="emergency_name" placeholder="Emergency Contact Name" />
-                    <input class="form-control" type="email" name="emergency_email" placeholder="Emergency Contact Email" />
-                    <input class="form-control" type="tel" name="emergency_phone" placeholder="Emergency Contact Phone" />
-                </div>
-                <div class="forms">
-                    <input class="form-control" type="submit" value="submit" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
-    </section>
-
-
-
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
     <script type="text/javascript" src="ecn.js"></script>
     <script src="home.js"></script>

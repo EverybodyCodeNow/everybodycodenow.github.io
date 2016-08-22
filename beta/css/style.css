@@ -193,6 +193,7 @@ body> header> a:hover {
     color: #fff;
     text-decoration: none;
     min-width: 100px;
+    font-size: 20px;
 }
 .authBtn> a:hover {
     background-color: #fff;

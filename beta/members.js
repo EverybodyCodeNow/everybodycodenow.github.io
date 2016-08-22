@@ -337,12 +337,12 @@ function viewMessage(id) {
 people = [];
 var peopleRef = firebase.database().ref("users");
 peopleRef.on('child_added', function(data) {
-    var person = data.val().firstName + " " + data.val().lastName + ", " + data.val().email + ", " + (data.val().phone||"");
+    var person = data.val().firstName + " " + data.val().lastName + ", " + data.val().email + ", " + (data.val().phone || "");
     people.push({
         id: data.key,
         name: person
     });
-    $('#people').append("<tr onClick=\"getPersonInfo('" + data.key + "')\"><td>" + data.val().firstName + " " + data.val().lastName + "</td><td>" + data.val().email + "</td><td>" + (data.val().phone||"") + "</td></tr>");
+    $('#people').append("<tr onClick=\"getPersonInfo('" + data.key + "')\"><td>" + data.val().firstName + " " + data.val().lastName + "</td><td>" + data.val().email + "</td><td>" + (data.val().phone || "") + "</td></tr>");
 });
 var $student = $('.typeahead');
 $student.typeahead({
@@ -391,7 +391,7 @@ function getPersonInfo(id, self) {
         $('#programsInModal').html("");
         if (snapshot.child("programs").hasChildren()) {
             snapshot.child("programs").forEach(function(childSnapshot) {
-                $('#programsInModal').append("<tr><td>" + (getUnixDate(childSnapshot.val().time) || "") + "</td><td>" + childSnapshot.val().programName + "</td><td>" + childSnapshot.val().attended + "</td><td><textarea data-programid='" + childSnapshot.key + "'>" + (childSnapshot.val().comment || "") + "</textarea></td><td><textarea data-programid='" + childSnapshot.key + "'>" + (childSnapshot.val().feedback || "") + "</textarea></td></tr>");
+                $('#programsInModal').append("<tr><td>" + (getUnixDate(childSnapshot.val().time) || "") + "</td><td>" + childSnapshot.val().programName + "</td><td><input value='" + childSnapshot.val().attended + "' type='text' onkeypress='updateListeners()'/></td><td><textarea data-programid='" + childSnapshot.key + "'>" + (childSnapshot.val().comment || "") + "</textarea></td><td>" + (childSnapshot.val().feedback || "") + "</td></tr>");
             });
 
         } else {
@@ -424,4 +424,11 @@ function getPersonInfo(id, self) {
             show: true
         });
     }
+}
+
+function updateListeners() {
+  $('#programsInModal > tr:nth-child(1) > td:nth-child(3) > input[type="text"]').keypress(function(){
+    firebase.database().ref("users/"+uid+"").set($(this).val());
+  });
+    //
 }
