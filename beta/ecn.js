@@ -179,7 +179,7 @@ $('#contactus-btn').click(function() {
             uname: $name.val(),
             uemail: $email.val(),
             ucomment: $comment.val(),
-            udate: getUnixTime
+            udate: getUnixTime()
         });
         $('#contactus_message').show().html('<p style="color:green;">Thanks for your response! We\'ll try to get back to you within a day or two!</p>').fadeOut(5000);
         $('#contactus-name').val('');

@@ -1,8 +1,8 @@
 //Authentication Listener
 $('.datetimepicker').datetimepicker({
-  format:'d/M/Y H:i:00',
-  inline:true,
-  defaultDate:new Date()
+    format: 'd/M/Y H:i:00',
+    inline: true,
+    defaultDate: new Date()
 });
 userId = null; //Current logged-in user id.
 firebase.auth().onAuthStateChanged(function(user) {
@@ -117,9 +117,9 @@ eventsRef.on('child_added', function(data) {
 
 
 function programInfo(programID) {
-console.log(Date.parse($('.datetimepicker').val())/1000);
-console.log(Date.parse($('.datetimepicker').val())/1000);
-console.log($('.datetimepicker').val());
+    console.log(Date.parse($('.datetimepicker').val()) / 1000);
+    console.log(Date.parse($('.datetimepicker').val()) / 1000);
+    console.log($('.datetimepicker').val());
     $('#eventInfoBody').html("");
     $('#eventInfo').modal({
         show: true
@@ -145,7 +145,85 @@ console.log($('.datetimepicker').val());
     });
 }
 
+//Contact Form submission.
+$("#addEventForm").submit(function(event) {
+    event.preventDefault();
+    var $name = $('#addEventForm > div> div> input[name="name"]');
+    var $description = $('#addEventForm > div> div>  input[name = "description"]');
+    var $time = $("#addEventForm > div>  div> input[name = 'time']");
+    var $address = $("#addEventForm > div>  input[name = 'address']");
+    var $city = $("#addEventForm > div>  input[name = 'city']");
+    var $state = $("#addEventForm > div>  select[name = 'state']");
+    var $country = $("#addEventForm > div>  select[name = 'country']");
+    var $zipcode = $("#addEventForm > div>  input[name = 'zipcode']");
+    var passVali = true;
+    if ($name.val() == "") {
+        $name.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if ($description.val() == "") {
+        $description.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if ($time.val() == "") {
+        $time.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if ($address.val() == "") {
+        passVali = false;
+        $address.css("border", "solid 2px red");
+    }
+    if ($city.val() == "") {
+        passVali = false;
+        $city.css("border", "solid 2px red");
+    }
+    if ($state.val() == "") {
+        passVali = false;
+        $state.css("border", "solid 2px red");
+    }
+    if ($zipcode.val() == "") {
+        passVali = false;
+        $zipcode.css("border", "solid 2px red");
+    }
+    if ($country.val() == "") {
+        passVali = false;
+        $country.css("border", "solid 2px red");
+    }
+    if (passVali) {
+        $name.css("border", "none");
+         $description.css("border", "none");
+         $time.css("border", "none");
+         $address.css("border", "none");
+         $city.css("border", "none");
+         $state.css("border", "none");
+         $country.css("border", "none");
+         $zipcode.css("border", "none");
+        var fayabase = firebase.database().ref("programs/");
+        var newPostRef = fayabase.push();
+        newPostRef.set({
+          programname: $name.val(),
+          description: $description.val(),
+          time: $time.val(),
+          address: $address.val(),
+          city: $city.val(),
+          state: $state.val(),
+          country: $country.val(),
+          zipcode: $zipcode.val()
+        });
+        $('#addEventMessage').show().html('<p style="color:green;">Event has been added successfully</p>').fadeOut(5000);
 
+       $name.val("");
+        $description.val("");
+        $time.val("");
+        $address.val("");
+        $city.val("");
+        $state.val("");
+        $country.val("");
+        $zipcode.val("");
+    } else {
+        $('#addEventMessage').show().html('<p style="color:red;">Please fill in the red boxes.</p>');
+    }
+});
 
 
 //Students Tab:
