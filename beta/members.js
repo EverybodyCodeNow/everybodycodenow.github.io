@@ -117,9 +117,6 @@ eventsRef.on('child_added', function(data) {
 
 
 function programInfo(programID) {
-    console.log(Date.parse($('.datetimepicker').val()) / 1000);
-    console.log(Date.parse($('.datetimepicker').val()) / 1000);
-    console.log($('.datetimepicker').val());
     $('#eventInfoBody').html("");
     $('#eventInfo').modal({
         show: true
@@ -149,13 +146,13 @@ function programInfo(programID) {
 $("#addEventForm").submit(function(event) {
     event.preventDefault();
     var $name = $('#addEventForm > div> div> input[name="name"]');
-    var $description = $('#addEventForm > div> div>  input[name = "description"]');
+    var $description = $('#addEventForm > div> div>  textarea[name = "description"]');
     var $time = $("#addEventForm > div>  div> input[name = 'time']");
-    var $address = $("#addEventForm > div>  input[name = 'address']");
-    var $city = $("#addEventForm > div>  input[name = 'city']");
-    var $state = $("#addEventForm > div>  select[name = 'state']");
-    var $country = $("#addEventForm > div>  select[name = 'country']");
-    var $zipcode = $("#addEventForm > div>  input[name = 'zipcode']");
+    var $address = $("#addEventForm > div>div>  input[name = 'address']");
+    var $city = $("#addEventForm > div>div>  input[name = 'city']");
+    var $state = $("#addEventForm > div>div>  select[name = 'state']");
+    var $country = $("#addEventForm > div>div>  select[name = 'country']");
+    var $zipcode = $("#addEventForm > div>div>  input[name = 'zipcode']");
     var passVali = true;
     if ($name.val() == "") {
         $name.css("border", "solid red 2px");
@@ -200,16 +197,18 @@ $("#addEventForm").submit(function(event) {
          $zipcode.css("border", "none");
         var fayabase = firebase.database().ref("programs/");
         var newPostRef = fayabase.push();
-        newPostRef.set({
+        var data = {
           programname: $name.val(),
           description: $description.val(),
-          time: $time.val(),
+          time: Date.parse($time.val()),
           address: $address.val(),
           city: $city.val(),
           state: $state.val(),
           country: $country.val(),
           zipcode: $zipcode.val()
-        });
+        }
+        console.log(data);
+        newPostRef.set(data);
         $('#addEventMessage').show().html('<p style="color:green;">Event has been added successfully</p>').fadeOut(5000);
 
        $name.val("");
