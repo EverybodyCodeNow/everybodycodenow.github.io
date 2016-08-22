@@ -11,11 +11,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="datetimepicker.js"></script>
     <script src="bootstrap3-typeahead.min.js"></script>
     <!-- Custom Theme files -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/media.css" rel="stylesheet" type="text/css" />
     <link href="css/members.css" rel="stylesheet" type="text/css" />
+    <link href="css/datetimepicker.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -214,7 +216,55 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Add an Event</h4>
                 </div>
-                <div class="modal-body">
+                <form id="addEventForm">
+                    <div class="modal-body">
+                        <div class="forms">
+                            <label>Name*:</label>
+                            <input class="form-control" type="text" name="name" placeholder="Name" />
+                        </div>
+                        <div class="forms">
+                            <label>Description*:</label>
+                            <textarea class="form-control" name="description" placeholder="Name" /></textarea>
+                        </div>
+
+                        <div class="forms">
+                            <label>Time*:</label> <br>
+                            <input class="form-control datetimepicker" type="text" name="time" placeholder="Date and Time" />
+                        </div>
+
+                        <div class="forms">
+                            <label>Location*:</label>
+
+                            <input class="form-control" type="text" name="address" placeholder="Address" />
+                            <input class="form-control" type="text" name="city" placeholder="City" />
+                            <select class="form-control" name="state">
+                            </select>
+                            <input class="form-control" type="number" name="zipcode" placeholder="Zipcode" />
+                            <select class="form-control" name="country">
+                            </select>
+                        </div>
+                        <span id="addEventMessage"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input class="btn btn-default" type="submit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="eventInfo" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Event Information</h4>
+                </div>
+                <div class="modal-body" id="eventInfoBody">
                     <p>Some text in the modal.</p>
                 </div>
                 <div class="modal-footer">

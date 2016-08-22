@@ -47,8 +47,8 @@
     }
     .event_card {
         display: inline-block;
-        width: 200px;
-        min-height: 300px;
+        width: 250px;
+        min-height: 350px;
         background-color: #fff;
         text-align: center;
         vertical-align: middle;
@@ -61,11 +61,15 @@
         margin: auto;
       }
       #addEventBtn{
-        margin-top: 55%;
+        margin-top: 60%;
       }
 
       .tab-content{
         width: 90%;
         margin: auto;
         min-height: 600px;
+      }
+
+      .programsAttended{
+        text-align: center;
       }
