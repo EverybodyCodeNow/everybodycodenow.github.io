@@ -188,30 +188,29 @@ $("#addEventForm").submit(function(event) {
     }
     if (passVali) {
         $name.css("border", "none");
-         $description.css("border", "none");
-         $time.css("border", "none");
-         $address.css("border", "none");
-         $city.css("border", "none");
-         $state.css("border", "none");
-         $country.css("border", "none");
-         $zipcode.css("border", "none");
+        $description.css("border", "none");
+        $time.css("border", "none");
+        $address.css("border", "none");
+        $city.css("border", "none");
+        $state.css("border", "none");
+        $country.css("border", "none");
+        $zipcode.css("border", "none");
         var fayabase = firebase.database().ref("programs/");
         var newPostRef = fayabase.push();
         var data = {
-          programname: $name.val(),
-          description: $description.val(),
-          time: Date.parse($time.val()),
-          address: $address.val(),
-          city: $city.val(),
-          state: $state.val(),
-          country: $country.val(),
-          zipcode: $zipcode.val()
+            programname: $name.val(),
+            description: $description.val(),
+            time: Date.parse($time.val()),
+            address: $address.val(),
+            city: $city.val(),
+            state: $state.val(),
+            country: $country.val(),
+            zipcode: $zipcode.val()
         }
-        console.log(data);
         newPostRef.set(data);
         $('#addEventMessage').show().html('<p style="color:green;">Event has been added successfully</p>').fadeOut(5000);
 
-       $name.val("");
+        $name.val("");
         $description.val("");
         $time.val("");
         $address.val("");
@@ -224,17 +223,126 @@ $("#addEventForm").submit(function(event) {
     }
 });
 
+//Contact Us Messages tab:
+
+var contactMessagesRef = firebase.database().ref("contactus-messages");
+contactMessagesRef.on('child_added', function(data) {
+
+    var name = data.val().uname;
+    var email = data.val().uemail;
+    var comment = getUnixDate(data.val().udate) + "<br/>" + data.val().ucomment;
+    var read = (data.val().read || "no");
+    var replied = (data.val().replied || "no");
+
+    $('#contactus_messages').append("<tr onClick=\"viewMessage('" + data.key + "')\" class='contactmessages'><td>" + name + "</td><td>" + email + "</td><td>" + comment + "</td><td>" + read + "</td><td>" + replied + "</td></tr>");
+});
+//Contact Form submission.
+$("#replyMessage").submit(function(event) {
+    event.preventDefault();
+    var messageId = $('#replyMessage').data("messageid");
+    var $subject = $('#replyMessage > div> div>   input[name="subject"]');
+    var $message = $('#replyMessage > textarea[name = "message"]');
+    var $email = $("#replyMessage > div>  div>  input[name = 'email']");
+    var $secret = $("#replyMessage > div>   input[name = 'secret']");
+    var time = getUnixTime();
+    var passVali = true;
+    if ($subject.val() == "") {
+        $name.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if ($message.val() == "") {
+        $message.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if ($email.val() == "") {
+        $email.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if ($secret.val() == "") {
+        $secret.css("border", "solid red 2px");
+        var passVali = false;
+    }
+    if (passVali) {
+        $secret.css("border", "none");
+        $subject.css("border", "none");
+        $message.css("border", "none");
+        $email.css("border", "none");
+        $.post("http://everybodycodenow.com/mail.php", {
+                secret: $secret.val(),
+                email: $email.val(),
+                subject: $subject.val(),
+                message: $message.val()
+            }).fail(function() {
+                $('#replyMessage_message').show().html('<p style="color:red;">Couldn\'nt send message. Make sure the secret is correct.</p>');
+            })
+            .done(function(data) {
+                if (data != "Email sent.") {
+                    $('#replyMessage_message').show().html('<p style="color:red;">Couldn\'nt send message. Make sure the secret is correct.</p>');
+                } else {
+                    var fayabase = firebase.database().ref("contactus-messages/" + messageId);
+                    var data = {
+                        replied: true,
+                        reply: $message.val(),
+                        replytime: time
+                    }
+                    fayabase.update(data);
+                    $('#replyMessage_message').show().html('<p style="color:green;">Message sent successfully.</p>').fadeOut(5000);
+
+                    $subject.val("");
+                    $message.val("");
+                    $('#replyMessage').hide();
+                    $('#messageReply').show();
+                    $('#messageReply').html("Replied on: " + snapshot.val().replytime + "<br>" + snapshot.val().reply);
+                }
+            });
+    } else {
+        $('#replyMessage_message').show().html('<p style="color:red;">Please fill in the red boxes.</p>');
+    }
+});
+
+function viewMessage(id) {
+    var $subject = $('#replyMessage > div> div>   input[name="subject"]');
+    var $message = $('#replyMessage >  textarea[name = "message"]');
+    var $email = $("#replyMessage > div> div>  input[name = 'email']");
+    $('#replyMessage').data("messageid", id);
+    firebase.database().ref('/contactus-messages/' + id).once('value').then(function(snapshot) {
+        $('#replyMessage').show();
+        $('#messageReply').hide();
+        $('#messageReply').html("");
+        $subject.val("");
+        $message.val("");
+        var name = snapshot.val().uname + ", " + snapshot.val().uemail;
+        var time = getUnixDate(snapshot.val().udate);
+        var comment = snapshot.val().ucomment;
+        $email.val(snapshot.val().uemail);
+        firebase.database().ref('/contactus-messages/' + id + '/read').set("yes");
+        $('#viewMessageContent').html('<div class=""> Sender: ' + name + '</div> <div class=""> Time: ' + time + '</div> <div class=""> ' + comment + ' </div>');
+
+        var replied = snapshot.val().replied;
+        if (replied == true) {
+            $('#replyMessage').hide();
+            $('#messageReply').show();
+            $('#messageReply').html("Replied on: " + snapshot.val().replytime + "<br>" + snapshot.val().reply);
+        }
+
+    });
+
+    $('#viewMessage').modal({
+        show: true
+    });
+
+}
 
 //Students Tab:
 people = [];
 var peopleRef = firebase.database().ref("users");
 peopleRef.on('child_added', function(data) {
-    var person = data.val().firstName + " " + data.val().lastName + ", " + data.val().email + ", " + data.val().phone;
+    var person = data.val().firstName + " " + data.val().lastName + ", " + data.val().email + ", " + (data.val().phone||"");
     people.push({
         id: data.key,
         name: person
     });
-    $('#people').append("<tr onClick=\"getPersonInfo('" + data.key + "')\"><td>" + data.val().firstName + " " + data.val().lastName + "</td><td>" + data.val().email + "</td><td>" + data.val().phone + "</td></tr>");
+    $('#people').append("<tr onClick=\"getPersonInfo('" + data.key + "')\"><td>" + data.val().firstName + " " + data.val().lastName + "</td><td>" + data.val().email + "</td><td>" + (data.val().phone||"") + "</td></tr>");
 });
 var $student = $('.typeahead');
 $student.typeahead({
@@ -247,7 +355,7 @@ $student.change(function() {
     if (current) {
         // Some item from your model is active!
         if (current.name == $student.val()) {
-            getPerson(current.id);
+            getPersonInfo(current.id);
         }
     } else {
         // Nothing is active so it is a new value (or maybe empty value)
