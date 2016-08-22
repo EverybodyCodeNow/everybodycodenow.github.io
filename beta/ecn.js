@@ -200,7 +200,8 @@ function getUnixTime() {
 function getUnixDate(timestamp) {
     var dt = eval(timestamp);
     var myDate = new Date(dt);
-    return (myDate.toLocaleString());
+    var options = {year: 'numeric', month: 'long', day: 'numeric' };
+    return (myDate.toLocaleString('en-US', options));
 }
 
 //Makes the html files a lot shorter :P Idk how this affects performance though <_<
