@@ -113,6 +113,11 @@ $("#signup").submit(function(event) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
+            firebase.database().ref("errors").push({
+                time: getUnixTime(),
+                errorm: errorMessage,
+                errorc: errorCode
+            });
             if (errorCode == "auth/invalid-email") {
                 $email.css("border", "solid 2px red");
                 $("#signupMessage").html("<p style='color:red;'>Please double check your email</p>");
