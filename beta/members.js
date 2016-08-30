@@ -48,7 +48,7 @@ function getUser() {
             $("#programInfo_" + programID + ">.subscribeEventBtn").addClass("btn-danger");
             $("#programInfo_" + programID + ">.subscribeEventBtn").attr("onClick", "unjoinEvent(\"" + programID + "\")");
             //Add it to the your progress tab
-            $("#user_programs").append("<tr class='programsAttended' id='programsAttended_" + programID + "'><td>" + (getUnixDate(data.val().time) || "") + "</td><td style='cursor:pointer;' onClick='programInfo(\"" + programID + "\")'>" + data.val().programName + "</td><td>" + data.val().attended + "</td><td>" + (data.val().comment || "") + "</td><td><textarea data-programid='" + data.key + "'>" + (data.val().feedback || "") + "</textarea></td></tr>");
+            $("#user_programs").append("<tr class='programsAttended' id='programsAttended_" + programID + "'><td>" + (getUnixDate(data.val().time) || "") + "</td><td style='cursor:pointer;' onClick='programInfo(\"" + programID + "\")'>" + data.val().programName + "</td><td>" + data.val().attended + "</td><td>" + (data.val().comment || "") + "</td><td><textarea onkeyup=\"updateStudentFeedback('"+ data.key +"')\" >" + (data.val().feedback || "") + "</textarea></td></tr>");
         });
         eventsAttendedRef.on('child_removed', function(data) {
             var programID = data.key;
@@ -69,6 +69,35 @@ function getUser() {
     });
 
 }
+
+$("#user_profile>.forms>input").keyup(function(){
+  field = $(this).attr('name');
+  value = $(this).val();
+  firebase.database().ref("users/" + userId + "/" + field).set(value);
+});
+$("#user_profile>.forms>textarea").keyup(function(){
+  field = $(this).attr('name');
+  value = $(this).val();
+  firebase.database().ref("users/" + userId + "/" + field).set(value);
+});
+$("#user_profile>.forms>select").change(function(){
+  field = $(this).attr('name');
+  value = $(this).val();
+  firebase.database().ref("users/" + userId + "/" + field).set(value);
+});
+
+function updateStudentFeedback(field){
+  value = $('#programsAttended_'+field+' > td > textarea').val();
+  firebase.database().ref("users/" + userId + "/programs/" + field+"/feedback").set(value);
+};
+
+$("#personModalForm>div>.forms>input").keyup(function(){
+  field = $(this).attr('name');
+  value = $(this).val();
+  id = 0;
+  firebase.database().ref("users/" + id + "/" + field).set(value);
+
+});
 
 function joinEvent(programID) {
     //Remove the Not sign up for any programs text
