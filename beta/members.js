@@ -70,24 +70,41 @@ function getUser() {
 
 }
 
+function showProgressBar(message){
+  if (message!=""){
+
+  } else {
+    message = "Changes have been saved."
+  }
+  $('#progressBar').html(message);
+  $('#progressBar').fadeIn('slow').fadeOut(4000);
+}
+
 $("#user_profile>.forms>input").keyup(function(){
   field = $(this).attr('name');
   value = $(this).val();
   firebase.database().ref("users/" + userId + "/" + field).set(value);
 });
+$("#user_profile>.forms>input").change(function(){
+showProgressBar("");});
 $("#user_profile>.forms>textarea").keyup(function(){
   field = $(this).attr('name');
   value = $(this).val();
   firebase.database().ref("users/" + userId + "/" + field).set(value);
+  showProgressBar("");
 });
 $("#user_profile>.forms>select").change(function(){
   field = $(this).attr('name');
   value = $(this).val();
   firebase.database().ref("users/" + userId + "/" + field).set(value);
+  showProgressBar("");
 });
 
 function updateStudentFeedback(field){
   value = $('#programsAttended_'+field+' > td > textarea').val();
+
+  $('#programsAttended_'+field+' > td > textarea').change(function(){
+  showProgressBar("Your feedback is being saved as you type. Thanks for your feedback!");});
   firebase.database().ref("users/" + userId + "/programs/" + field+"/feedback").set(value);
 };
 
@@ -155,6 +172,7 @@ function programInfo(programID) {
         var address = snapshot.val().address + ", " + snapshot.val().city + ", " + snapshot.val().country + ", " + snapshot.val().zipcode;
         var time = snapshot.val().time;
         var description = snapshot.val().description;
+        geocodeAddress(address, programname);
         $('#eventInfoBody').html("<div class='' id='programInfo_" + programID + "' data-programName='" + programname + "' data-time='" + time + "'> <h1>" + programname + "</h1> <p> " + description + " </p> <p>Time: " + getUnixDate(time) + "</p><p>Location: " + address + "</p><div class='btn btn-primary btn-lg subscribeEventBtn' onClick='joinEvent(\"" + programID + "\")'>Join Event</div></div>");
         if (snapshot.child("students/" + userId).exists() || snapshot.child("instructors/" + userId).exists()) {
             $("#programInfo_" + programID + ">.subscribeEventBtn").html("Canel Joining");

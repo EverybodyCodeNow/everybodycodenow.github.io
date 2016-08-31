@@ -4,7 +4,7 @@ if (empty($_POST)){
   die("Access Denied.");
 }
 $secret = $_POST['secret'];
-$actual_secret = "ECNRock2016";
+$actual_secret = "ECN2016";
 if ($secret != $actual_secret){
   die("Authentication Error");
 }

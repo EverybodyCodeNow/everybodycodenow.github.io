@@ -41,6 +41,8 @@
                 <li class="active"><a data-toggle="tab" href="#events_tab"><i class="material-icons">event</i> Events</a></li>
                 <li><a data-toggle="tab" href="#progress"><i class="material-icons">trending_up</i> Your Progress</a></li>
                 <li><a data-toggle="tab" href="#profile"><i class="material-icons">contacts</i> Your Profile</a></li>
+                <li><a data-toggle="tab" href="#blog"><i class="material-icons">note_add</i> Blog</a></li>
+                <li><a data-toggle="tab" href="#programs"><i class="material-icons">work</i> Programs</a></li>
                 <li><a data-toggle="tab" href="#students"><i class="material-icons">&#xE84E;</i> Students</a></li>
                 <li><a data-toggle="tab" href="#contactus_messages_tab"><i class="material-icons">mail</i> Contact Us Messages</a></li>
             </ul>
@@ -57,6 +59,13 @@
                 </div>
 
 
+            </div>
+
+            <div id="blog" class="tab-pane fade">
+                <h2>Coming soon!</h2>
+            </div>
+            <div id="programs" class="tab-pane fade">
+                <h2>Coming very soon!</h2>
             </div>
             <div id="progress" class="tab-pane fade">
                 <h1><i class="material-icons">face</i> Programs you've joined:</h1>
@@ -312,6 +321,11 @@
                 <div class="modal-body" id="eventInfoBody">
                     <p>Some text in the modal.</p>
                 </div>
+                <div class="modal-body">
+                    <div class="" style="width:100%;min-height:400px;" id="map">
+
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -319,6 +333,40 @@
 
         </div>
     </div>
+    <script>
+        map = "";
+        geocoder = "";
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
+                zoom: 8
+            });
+            geocoder = new google.maps.Geocoder();
+            $("#eventInfo").on("shown.bs.modal", function() {
+                google.maps.event.trigger(map, "resize");
+            });
+        }
+
+        function geocodeAddress(address, programname) {
+            geocoder.geocode({
+                'address': address
+            }, function(results, status) {
+                if (status === 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        title: programname
+                    });
+                } else {
+                }
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZbco1VR3tONggfZmmVc9O8cyswZL1T_U&callback=initMap" async defer></script>
     <!-- Modal -->
 
     <div id="personModal" class="modal fade" role="dialog">
@@ -466,9 +514,9 @@
     <script src="members.js"></script>
 
     <footer> <i class="material-icons">copyright</i> 2016 Everybody Code Now</footer>
-<div class="" id="progressBar" style="display:none;position:absolute;bottom:0px;width:100%;text-align:center;color:white;background-color:#666;">
-Changes saved automatically.
-</div>
+    <div class="" id="progressBar" style="display:none;position:absolute;bottom:0px;width:100%;text-align:center;color:white;background-color:#666;">
+        Changes saved automatically.
+    </div>
 </body>
 
 </html>
